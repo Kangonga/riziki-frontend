@@ -41,6 +41,7 @@ nav{
   justify-content: space-evenly;
   padding: 1rem;
   width: 50%;
+  align-items: center;
 }
 .logoHolder{
   height: 10%;
@@ -132,6 +133,14 @@ button{
 .header{
   background-color: darkturquoise;
 }
+nav a {
+  border: none;
+}
 nav a:hover{
-  
+  border: none;
+  text-decoration: none;
+  transform: translate(-5px);
+  transition-duration: .5s;
+  padding-bottom: 5px;
+  border-bottom: 2px solid crimson;
 }

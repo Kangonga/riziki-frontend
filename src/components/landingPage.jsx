@@ -35,7 +35,7 @@ export default function LandingPage(){
                         <div>Writing and Translation</div>
                         <div>Legal</div>
                         <div>Engineering and Architecture</div>
-                        <div>Software deveopment</div>
+                        <div>Software development</div>
                         <div>IT and networking</div>
                         <div>Sales and marketing</div>
                     </section>

@@ -82,6 +82,11 @@ button{
   background-color: blue;
   color: white;
 }
+button:active{
+  transform:translate(-5px);
+  background-color:#810d0d;
+  /* color:black; */
+}
 .subscribe {
   margin: 1rem;
   height: 2rem;

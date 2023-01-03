@@ -72,8 +72,7 @@ nav{
   font-size: 1.2rem;
 }
 .landingPageBody input {
-  /* display: block; */
-  width: 30%;
+  width: 30vw;
   margin: auto;
   height: 2rem;
   border-radius: 5px;
@@ -82,14 +81,14 @@ nav{
 button{
   background-color: blue;
   color: white;
-  font-weight: bold;
 }
 .subscribe {
   margin: 1rem;
   height: 2rem;
   border-radius: 5px;
-  width: 10%;
+  width: 10vw;
   border: none;
+  font-size: 16px;
 }
 .landingPageCTA{
   padding-top: 2rem;
@@ -151,4 +150,16 @@ nav a:hover{
 .footerDiv > *{
   color: white;
   margin-top: 1rem;
+}
+@media (max-width:480px){
+  .landingPageFooter{
+    height:fit-content;
+    display:grid;
+    grid-template-columns:repeat(2,1fr)
+  }
+  .footerDiv {
+    color: white;
+    margin: auto;
+    width:80%
+  }
 }

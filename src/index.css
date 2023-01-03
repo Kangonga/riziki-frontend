@@ -141,9 +141,8 @@ nav a:hover{
   border: none;
   text-decoration: none;
   transform: translate(-5px);
-  transition-duration: .5s;
+  transition: .5s;
   padding-bottom: 5px;
-  border-bottom: 2px solid crimson;
 }
 .landingPageFooter {
   height: 40vh;

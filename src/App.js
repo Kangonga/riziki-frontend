@@ -5,11 +5,10 @@ function App() {
   return (
   <>
    <Routes>
-      <Route path="" element={<LandingPage />} />
+      {/* <Route path="" element={<LandingPage />} />
       <Route path="/users" element={<Users/>} />
       <Route path="/login" element={<Login/>} />
-      <Route path="/jobs" element={<Jobs/>} />
-      {/* <Route path="/login" element={<Login/>} /> */}
+      <Route path="/jobs" element={<Jobs/>} /> */}
     </Routes>    
     </>
    

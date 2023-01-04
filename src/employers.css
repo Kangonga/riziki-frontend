@@ -53,9 +53,7 @@
     height: 20vh;
     border-radius: 40%;
 }
-.employerIntro {
-    /* padding: 0 1rem ; */
-}
+
 .employerIntro h1 {
     font-weight: normal;
     font-size: 3rem;

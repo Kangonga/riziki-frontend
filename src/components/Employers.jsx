@@ -41,6 +41,7 @@ function UserCard(){
             <input type="text" value="John Doe" name="employerName" id="username"/>
             <input type="text" value="Individual" name="company"/>
             <input type="text" value="Nairobi, Kenya" name="location"/>
+            <input type="text" value="Posted Jobs: 0" name="postedJobs"/>
         </div>
     )
 }

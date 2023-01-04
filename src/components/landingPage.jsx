@@ -11,7 +11,7 @@ export default function LandingPage(){
                 <section className="landingPageBody">
                     <h1>Find Your Dream Job Today</h1>
                     <p>
-                        We help you find exciting and fully opportunities around the world.
+                        We help you find exciting and fully remote opportunities around the world.
                     </p>
                     <p>
                         Subscribe today to get the latest openings sent to your inbox.

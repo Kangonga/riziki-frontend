@@ -1,5 +1,6 @@
 import Logo from "../assets/sitelogo.jpg"
 import NavBar from "./NavBar"
+import TalentCards from "./TalentCards"
 export default function Employers(){
     return(
         <>
@@ -22,6 +23,7 @@ export default function Employers(){
                     </button>
                 </section>
             </div>
+            <TalentCards />
         </>
     )
 }
@@ -30,6 +32,7 @@ export default function Employers(){
 function UserCard(){
     return(
         <div id="userCard">
+            <h1>My Profile</h1>
             <figure className="UserImage">
                 <img className="profileImage" src={Logo}alt="Profile Image" />
             </figure>

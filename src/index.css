@@ -33,7 +33,7 @@ a{
 .header{
   display: flex;
   height: 16vh;
-  width: 100vw;
+  width: 100%;
   justify-content: space-between;
   padding: 1rem;
   background-color: darkturquoise;

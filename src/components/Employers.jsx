@@ -1,4 +1,5 @@
 import Logo from "../assets/sitelogo.jpg"
+import Footer from "./Footer"
 import NavBar from "./NavBar"
 import TalentCards from "./TalentCards"
 export default function Employers(){
@@ -24,6 +25,7 @@ export default function Employers(){
                 </section>
             </div>
             <TalentCards />
+            <Footer />
         </>
     )
 }

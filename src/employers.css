@@ -8,7 +8,8 @@
     padding: 2rem 1rem;
     background-color:#f1f1f1;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
 }
 
 #userCard {
@@ -47,4 +48,25 @@
 .profileImage{
     height: 20vh;
     border-radius: 40%;
+}
+.employerIntro {
+    /* padding: 0 1rem ; */
+}
+.employerIntro h1 {
+    font-weight: normal;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.employerIntro h2 {
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: rgb(59, 54, 54);
+}
+.employerIntro button {
+    margin: 1rem 1rem 0 0;
+    height: 2rem;
+    width: 8rem;
+    border-radius: 20px;
+    border: none;
+    font-size: 1rem;
 }

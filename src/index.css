@@ -79,13 +79,13 @@ nav{
 }
 
 button{
-  background-color: blue;
-  color: white;
+  background-color: darkturquoise;
+  color: black;
 }
 button:active{
   transform:translate(-5px);
   background-color:#810d0d;
-  /* color:black; */
+  color:white;
 }
 .subscribe {
   margin: 1rem;

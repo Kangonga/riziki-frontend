@@ -6,11 +6,25 @@ export default function Employers(){
         <NavBar />
             <div id="employerContainer">
                 <UserCard />
+                <section className="employerIntro">
+                    <h1>
+                        How hiring should work.
+                    </h1>
+                    <h2>
+                        You can now hire the best talent in any given field.
+                        We have the best there is out there, right here.
+                    </h2>
+                    <button>
+                        Get Started
+                    </button>
+                    <button>
+                        Post a Job
+                    </button>
+                </section>
             </div>
         </>
     )
 }
-
 
 
 function UserCard(){

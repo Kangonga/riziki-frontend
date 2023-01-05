@@ -44,7 +44,7 @@ nav{
   display: flex;
   justify-content: space-evenly;
   padding: 1rem;
-  width: 70%;
+  width: 40%;
   align-items: center;
 }
 .logoHolder{
@@ -141,6 +141,8 @@ nav a:hover{
   text-decoration: none;
   transform: translate(-5px);
   transition: .5s;
+  padding-bottom: 5px;
+  border-bottom: 1px solid brown;
   padding-bottom: 5px;
 }
 .landingPageFooter {

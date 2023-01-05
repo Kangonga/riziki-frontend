@@ -44,8 +44,9 @@ nav{
   display: flex;
   justify-content: space-evenly;
   padding: 1rem;
-  width: 40%;
+  width: 70%;
   align-items: center;
+  gap: .5rem;
 }
 .logoHolder{
   width: 30%;

@@ -1,4 +1,3 @@
-import {Link} from "react-router-dom"
 import NavBar from "./NavBar"
 import TalentCards from "./TalentCards"
 import Footer from "./Footer"

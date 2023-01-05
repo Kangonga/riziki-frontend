@@ -9,9 +9,9 @@ export default function NavBar(){
                 <img src={logo} alt="sitelogo" className="sitelogo" />
             </figure>
             <nav>
-            <Link to="users">Find work</Link>
-            <Link to="employers">Find Talent</Link>
-            <Link to="/">Login</Link>
+            <Link to="/users">Find work</Link>
+            <Link to="/employers">Find Talent</Link>
+            <Link to="/employers">Login</Link>
             </nav>
             </header>
         </>

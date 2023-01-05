@@ -1,7 +1,9 @@
 import Logo from "../assets/sitelogo.jpg"
 import Footer from "./Footer"
-import NavBar from "./NavBar"
 import TalentCards from "./TalentCards"
+import { Link } from "react-router-dom"
+import logo from "../assets/sitelogo.jpg"
+
 export default function Employers(){
     return(
         <>
@@ -16,12 +18,12 @@ export default function Employers(){
                         You can now hire the best talent in any given field.
                         We have the best there is out there, right here.
                     </h2>
-                    <button>
+                    <Link to="/jobForm">
                         Get Started
-                    </button>
-                    <button>
+                    </Link>
+                    {/* <Link to="jobForm">
                         Post a Job
-                    </button>
+                    </Link> */}
                 </section>
             </div>
             <TalentCards />
@@ -29,14 +31,31 @@ export default function Employers(){
         </>
     )
 }
-
+ function NavBar(){
+    return(
+        <>
+         <header className="header">
+            <figure className="logoHolder">
+                <img src={logo} alt="sitelogo" className="sitelogo" />
+            </figure>
+            <nav>
+            <Link to="users">Find Talent</Link>
+            <Link to="jobForm">Post a Job</Link>
+            <Link to="myjobs">My Jobs</Link>
+            <Link to="employerProfile">My Profile</Link>
+            <Link to="/employers">Login</Link>
+            </nav>
+            </header>
+        </>
+    )
+}
 
 function UserCard(){
     return(
         <div id="userCard">
             <h1>My Profile</h1>
             <figure className="UserImage">
-                <img className="profileImage" src={Logo}alt="Profile Image" />
+                <img className="profileImage" src={Logo}alt="Profile icon" />
             </figure>
             <input type="text" value="John Doe" name="employerName" id="username"/>
             <input type="text" value="Individual" name="company"/>

@@ -2,7 +2,7 @@ import Logo from "../assets/sitelogo.jpg"
 import Footer from "./Footer"
 import TalentCards from "./TalentCards"
 import { Link } from "react-router-dom"
-import logo from "../assets/sitelogo.jpg"
+import NavBar from "./NavBar"
 
 export default function Employers(){
     return(
@@ -31,24 +31,6 @@ export default function Employers(){
         </>
     )
 }
- function NavBar(){
-    return(
-        <>
-         <header className="header">
-            <figure className="logoHolder">
-                <img src={logo} alt="sitelogo" className="sitelogo" />
-            </figure>
-            <nav>
-            <Link to="users">Find Talent</Link>
-            <Link to="jobform">Post a Job</Link>
-            <Link to="myjobs">My Jobs</Link>
-            <Link to="employerProfile">My Profile</Link>
-            <Link to="/employers">Login</Link>
-            </nav>
-            </header>
-        </>
-    )
-}
 
 function UserCard(){
     return(
@@ -64,3 +46,4 @@ function UserCard(){
         </div>
     )
 }
+export {UserCard}

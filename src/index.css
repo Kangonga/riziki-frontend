@@ -159,6 +159,17 @@ nav a:hover{
   color: white;
   margin-top: 1rem;
 }
+#employerContainer.dashboard{
+  display: grid;
+  margin: 0;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+.heroImage{
+  width: 100%;
+  opacity: .8;
+}
+
+/* -------------Media Queries--------------------------------------- */
 @media (max-width:660px){
   .landingPageFooter{
     height:fit-content;
@@ -169,7 +180,17 @@ nav a:hover{
   .footerDiv {
     color: white;
     margin: auto;
-    width:80%
+    width:80%;
+    text-align: center;
+    height: max-content;
+  }
+  .heroImage{
+    display: none;
+  }
+  #employerContainer.dashboard{
+    display: block;
+    margin: 0;
+    height: max-content;
   }
   .categories {
     display: grid;

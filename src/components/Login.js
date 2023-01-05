@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect, useRef} from "react";
 import './Login.css';
 import { Navigate } from "react-router-dom";
 import { UserContext } from "./UserContext";
@@ -8,6 +8,10 @@ export default function Login ({formSwitch}) {
     const {me,setMe} = useContext(UserContext)
     const [user,setUser] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const inputRef = useRef(null)
+    useEffect(() => {
+      inputRef.current.focus()
+    }, [])
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(email)
@@ -49,6 +53,7 @@ export default function Login ({formSwitch}) {
         setPasswordConfirmation = {setPasswordConfirmation}
         setEmail = {setEmail}
         formSwitch = {formSwitch}
+        inputRef = {inputRef}
         />}
         </>
       )
@@ -86,13 +91,14 @@ export default function Login ({formSwitch}) {
 }
 
 //export default Login
-function Loginone({handleSubmit,email,setEmail,setPassword,password,formSwitch}) {
+function Loginone({handleSubmit,email,setEmail,setPassword,password,formSwitch, inputRef}) {
     return(
         <div className="log-form-container">
             <h2>Login</h2>
         <form className="login-form" onSubmit={handleSubmit}>
         <label htmlFor="email">email</label>
         <input
+        ref={inputRef}
         id="email"
         name="email" 
         type= "email" 

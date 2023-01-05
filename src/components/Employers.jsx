@@ -18,7 +18,7 @@ export default function Employers(){
                         You can now hire the best talent in any given field.
                         We have the best there is out there, right here.
                     </h2>
-                    <Link to="/jobForm">
+                    <Link to="jobform">
                         Get Started
                     </Link>
                     {/* <Link to="jobForm">
@@ -40,7 +40,7 @@ export default function Employers(){
             </figure>
             <nav>
             <Link to="users">Find Talent</Link>
-            <Link to="jobForm">Post a Job</Link>
+            <Link to="jobform">Post a Job</Link>
             <Link to="myjobs">My Jobs</Link>
             <Link to="employerProfile">My Profile</Link>
             <Link to="/employers">Login</Link>

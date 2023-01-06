@@ -1,16 +1,12 @@
-import { useState } from "react"
-import UserNavBar from "./UserNavBar"
 import Logo from "../assets/sitelogo.jpg"
-import EmployerProfile from "./EmployerProfile"
+import EmployerNavBar from "./EmployerNavBar"
 
-
-export default function UserProfile(){
+export default function EmployerProfile(){
     return(
         <>
-        <UserNavBar />
+        <EmployerNavBar />
         <div id="userProfileContainer">
-           
-              <div id="userProfile">
+        <div id="userProfile">
                 <h1>My Profile</h1>
                 <figure id="userImage">
                     <img  src={Logo}alt="Profile icon" />
@@ -22,18 +18,8 @@ export default function UserProfile(){
                     </div>
     
                     <div className="profileInput">
-                        <label htmlFor="jobs_posted">Job Bids Sent Out:</label>
-                        <input type="text" required name="applied_jobs"/>
-                    </div>
-
-                    <div className="profileInput">
-                        <label htmlFor="jobs_posted">Accepted Applications:</label>
-                        <input type="text" required name="matched_jobs"/>
-                    </div>
-
-                    <div className="profileInput">
-                        <label htmlFor="jobs_posted">Active Jobs</label>
-                        <input type="text" required name="matched_jobs"/>
+                        <label htmlFor="jobs_posted">Jobs Posted:</label>
+                        <input type="text" required name="jobs_posted"/>
                     </div>
     
                     <div className="profileInput">
@@ -52,7 +38,9 @@ export default function UserProfile(){
                                
                 </form>
             </div>
-        </div></>
-        
+        </div>              
+        </>
     )
-}
+    }
+    
+   

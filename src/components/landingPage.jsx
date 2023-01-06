@@ -1,8 +1,6 @@
 import NavBar from "./NavBar"
 import TalentCards from "./TalentCards"
 import Footer from "./Footer"
-// import {UserCard} from "./Employers"
-import logo from "../assets/sitelogo.jpg"
 import { Link } from "react-router-dom"
 import cta from "../assets/cta.jpg"
 

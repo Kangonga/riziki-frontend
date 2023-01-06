@@ -13,7 +13,7 @@ export default function NavBar(){
             <Link to="/users">Find Jobs</Link>
             <Link to="/employers">Find Talent</Link>
             {/* <Link to="/employerProfile">My Profile</Link> */}
-            <Link to="/employers">Login</Link>
+            <Link to="/employers" id="login">Login</Link>
             </nav>
             </header>
         </>

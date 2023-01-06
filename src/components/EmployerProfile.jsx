@@ -21,7 +21,12 @@ export default function EmployerProfile(){
                         <label htmlFor="jobs_posted">Jobs Posted:</label>
                         <input type="text" required name="jobs_posted"/>
                     </div>
-    
+
+                    <div className="profileInput">
+                        <label htmlFor="jobs_posted">Active Jobs</label>
+                        <input type="text" required name="matched_jobs"/>
+                    </div>
+                    
                     <div className="profileInput">
                         <label htmlFor="email">Email:</label>
                         <input type="text" name="email"/>

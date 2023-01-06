@@ -48,6 +48,29 @@ nav{
   align-items: center;
   gap: .5rem;
 }
+#login {
+  background-color: rebeccapurple;
+  color: white;
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0 .5rem;
+  /* text-align: center; */
+  border-radius: 5px;
+  padding: 0 1.5rem;
+  transform: translateY(0);
+  transition: 0s;
+  padding-bottom: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+#login:hover{
+  /* transform: translateY(-5px); */
+  transition-duration: .2s;
+}
+#login:active {
+  background-color: #810d0d;
+  transform: translateY(3px);
+}
 .logoHolder{
   width: 30%;
 }
@@ -80,11 +103,11 @@ nav{
 }
 
 button{
-  background-color: darkturquoise;
-  color: black;
+  background-color: rebeccapurple;
+  color: white;
 }
 button:active{
-  transform:translate(-5px);
+  transform:translateY(-5px);
   background-color:#810d0d;
   color:white;
 }
@@ -136,14 +159,15 @@ button:active{
 
 nav a {
   border: none;
+  /* width: 12rem; */
 }
 nav a:hover{
   border: none;
   text-decoration: none;
-  transform: translate(-5px);
+  transform: translateY(-5px);
   transition: .5s;
   padding-bottom: 5px;
-  border-bottom: 1px solid brown;
+  /* border-bottom: 1px solid rebeccapurple; */
   padding-bottom: 5px;
 }
 .landingPageFooter {

@@ -13,7 +13,7 @@ export default function EmployerNavBar(){
             <Link to="/jobform">Post a Job</Link>
             <Link to="/myjobs">My Jobs</Link>
             <Link to="/employerProfile">My Profile</Link>
-            <Link to="/employers">Login</Link>
+            <Link to="/employers" id="login">Login</Link>
             </nav>
             </header>
         </>

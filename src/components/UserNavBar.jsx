@@ -12,7 +12,7 @@ export default function UserNavBar(){
             <nav>
             <Link to="/jobs">Find Jobs</Link>
             <Link to="/myjobs">My Jobs</Link>
-            <Link to="/login">Login</Link>
+            <Link to="/login" id="login">Login</Link>
             </nav>
             </header>
         </>

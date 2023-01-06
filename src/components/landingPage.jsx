@@ -1,4 +1,4 @@
-// import NavBar from "./NavBar"
+import NavBar from "./NavBar"
 import TalentCards from "./TalentCards"
 import Footer from "./Footer"
 // import {UserCard} from "./Employers"
@@ -35,20 +35,3 @@ export default function LandingPage(){
     )
 }
 
-function NavBar(){
-    return(
-        <>
-         <header className="header">
-            <figure className="logoHolder">
-                <img src={logo} alt="sitelogo" className="sitelogo" />
-            </figure>
-            <nav>
-            <Link to="/users">Find Jobs</Link>
-            <Link to="/users">Find Talent</Link>
-            {/* <Link to="/employerProfile">My Profile</Link> */}
-            <Link to="/employers">Login</Link>
-            </nav>
-            </header>
-        </>
-    )
-}

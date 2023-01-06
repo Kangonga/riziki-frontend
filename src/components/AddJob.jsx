@@ -1,10 +1,10 @@
-import NavBar from "./NavBar";
+import EmployerNavBar from "./EmployerNavBar";
 import "../jobform.css"
 
 export default function AddJob(){
 return (
     <div id="jobFormPage">
-        <NavBar />
+        <EmployerNavBar />
         <section id="formContainer">
             <h1>Add a job</h1>
             <p>You know what you are looking for, We help you find them.</p>

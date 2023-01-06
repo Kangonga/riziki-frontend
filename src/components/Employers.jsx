@@ -2,12 +2,12 @@ import Logo from "../assets/sitelogo.jpg"
 import Footer from "./Footer"
 import TalentCards from "./TalentCards"
 import { Link } from "react-router-dom"
-import NavBar from "./NavBar"
+import EmployerNavBar from "./EmployerNavBar"
 
 export default function Employers(){
     return(
         <>
-        <NavBar />
+        <EmployerNavBar />
             <div id="employerContainer">
                 <UserCard />
                 <section className="employerIntro">

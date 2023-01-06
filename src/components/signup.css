@@ -1,5 +1,5 @@
-
-.container, .form-container {
+.container,
+.form-container {
     display: flex;
     flex-direction: column;
 }
@@ -14,30 +14,33 @@
 label {
     text-align: left;
     padding: 0.25rem 0;
-  }
-  input {
+}
+
+input {
     margin: 0.5rem 0;
     padding: 1rem;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-  }
-  select {
-      margin: 0.5rem 0;
-      padding: 1rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-  button {
+}
+
+select {
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button {
     border: none;
     padding: 20px;
     border-radius: 10px;
     cursor: pointer;
-  }
+}
 
- .register-error {
+.register-error {
     margin-top: 10px;
     color: red;
     font-weight: bold;
-  }
+}

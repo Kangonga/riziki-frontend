@@ -6,6 +6,7 @@ import Profile from "./components/Profile";
 import EmployerJobs from "./components/EmployerJobs";
 import Cards from "./components/Cards";
 import './employers.css'
+import UserList from "./components/UserList";
 
 
 
@@ -19,6 +20,7 @@ function App() {
      <Route path="/profile" element={<Profile />} />
      <Route path="/employerJobs" element={<EmployerJobs />} />
      <Route path="/cards" element={<Cards />} />
+     <Route path="/usercards" element={<UserList />} />
       {/* 
       <Route path="/users" element={<Users/>} />
       <Route path="/login" element={<Login/>} />

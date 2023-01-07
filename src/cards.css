@@ -3,14 +3,49 @@
     width: 100%;
     min-height: 70vh;
     max-height: fit-content;
+    overflow-y: scroll;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
     padding: 3rem;
     gap: 1rem;
-    grid-auto-rows: minmax(22rem,1fr);
+    grid-auto-rows: minmax(20rem, 26rem);
+}
+.otherSkills {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* outline: 2px solid blueviolet; */
+}
+.otherSkills li {
+    background-color: darkturquoise;
+    width: max-content;
+    padding: .3rem;
+    border-radius: 10px;
 }
 .card{
     background-color: white;
     border: 2px solid darkturquoise;
     border-radius: 10px;
+    text-align: center;
+}
+#cardContainer figure{
+        height: 45%;
+        text-align: center;
+        padding-top: 1rem;
+}
+#cardContainer figure img{
+    height: 100%; 
+    border-radius: 10px;
+}
+.card{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+.personalDetails {
+    height: 55%;
+    /* background-color: aquamarine; */
+    font-size: 1.1rem;
 }

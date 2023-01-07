@@ -1,13 +1,24 @@
-import NavBar from "./NavBar"
-import TalentCards from "./TalentCards"
-import Footer from "./Footer"
-import { Link } from "react-router-dom"
+import { useState } from "react"
+import EmployerNavBar from "./EmployerNavBar"
 import cta from "../assets/cta.jpg"
+import { Link } from "react-router-dom"
 
-export default function LandingPage(){
+
+export default function EmployerJobs(){
+    const [jobs,setJobs] = useState(1)
+    return(
+        <div id="EmployerJobsPage">
+            <EmployerNavBar />
+            <section id="employerJobsContainer">
+                <NoJobs />
+            </section>
+        </div>
+    )
+}
+
+function NoJobs(){
     return (
         <div className="container" id="landingPageContainer">
-           <NavBar />
             <main>
                 <div id="employerContainer" className="dashboard">
                 <figure>
@@ -15,7 +26,7 @@ export default function LandingPage(){
                 </figure>
                 <section className="employerIntro">
                     <h1>
-                        How hiring should work.
+                        You currently have no active jobs.
                     </h1>
                     <h2>
                         You can now hire the best talent in any given field.
@@ -26,10 +37,13 @@ export default function LandingPage(){
                     </Link>
                 </section>
             </div>
-                <TalentCards />
-                <Footer />
             </main>  
         </div>
     )
 }
 
+function JobCards(){
+    return (
+        <></>
+    )
+}

@@ -1,0 +1,16 @@
+#cardContainer{
+    background-color: rgb(238, 217, 222);
+    width: 100%;
+    min-height: 70vh;
+    max-height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+    padding: 3rem;
+    gap: 1rem;
+    grid-auto-rows: minmax(22rem,1fr);
+}
+.card{
+    background-color: white;
+    border: 2px solid darkturquoise;
+    border-radius: 10px;
+}

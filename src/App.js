@@ -3,7 +3,10 @@ import Employers from "./components/Employers";
 import LandingPage from "./components/landingPage";
 import AddJob from "./components/AddJob"
 import Profile from "./components/Profile";
+import EmployerJobs from "./components/EmployerJobs";
+import Cards from "./components/Cards";
 import './employers.css'
+
 
 
 function App() {
@@ -14,7 +17,8 @@ function App() {
      <Route path="/employers/*" element={<Employers />} />
      <Route path="/jobform" element={<AddJob />} />
      <Route path="/profile" element={<Profile />} />
-
+     <Route path="/employerJobs" element={<EmployerJobs />} />
+     <Route path="/cards" element={<Cards />} />
       {/* 
       <Route path="/users" element={<Users/>} />
       <Route path="/login" element={<Login/>} />

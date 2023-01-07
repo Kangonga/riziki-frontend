@@ -22,6 +22,7 @@
     background-color: darkturquoise;
     width: max-content;
     padding: .3rem;
+    font-size: 1rem;
     border-radius: 10px;
 }
 .card{

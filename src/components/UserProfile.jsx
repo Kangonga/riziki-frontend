@@ -7,9 +7,8 @@ export default function UserProfile(){
         <>
         <UserNavBar />
         <div id="userProfileContainer">
-           
               <div id="userProfile">
-                <h1>My Profile</h1>
+              <h1>My Profile</h1>
                 <figure id="userImage">
                     <img  src={Logo}alt="Profile icon" />
                 </figure>

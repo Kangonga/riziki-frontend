@@ -10,6 +10,7 @@ import UserList from "./components/UserList";
 import { useState } from "react";
 import Login from "./userComponents/Login";
 import {UserProfile} from "./userComponents/Profile";
+// import UserProfile from "./components/Profile";
 import SignUpForm from "./userComponents/SignUpForm";
 
 function App() {

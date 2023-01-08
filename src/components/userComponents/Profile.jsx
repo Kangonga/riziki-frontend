@@ -1,5 +1,5 @@
 import React, { useState} from 'react'
-import UserProfile from '../components/UserProfile'
+import UserProfile from './UserProfile'
 
 function Profile() {
     // const [name, setName] = useState("")

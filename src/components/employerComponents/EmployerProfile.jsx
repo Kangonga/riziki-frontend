@@ -1,4 +1,4 @@
-import Logo from "../assets/sitelogo.jpg"
+import Logo from "../../assets/sitelogo.jpg"
 import EmployerNavBar from "./EmployerNavBar"
 
 export default function EmployerProfile(){

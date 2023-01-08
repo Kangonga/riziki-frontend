@@ -1,17 +1,17 @@
 import {Routes, Route} from "react-router-dom"
-import Employers from "./components/Employers";
+import Employers from "./components/employerComponents/Employers";
 import LandingPage from "./components/landingPage";
-import AddJob from "./components/AddJob"
-import Profile from "./components/Profile";
-import EmployerJobs from "./components/EmployerJobs";
+import AddJob from "./components//employerComponents/AddJob"
+// import Profile from "./components//employerComponents/Profile";
+import EmployerProfile from "./components/employerComponents/EmployerProfile";
+import EmployerJobs from "./components//employerComponents/EmployerJobs";
 import Cards from "./components/Cards";
 import './employers.css'
-import UserList from "./components/UserList";
+import UserList from "./components/employerComponents/UserList";
 import { useState } from "react";
-import Login from "./userComponents/Login";
-import {UserProfile} from "./userComponents/Profile";
-// import UserProfile from "./components/Profile";
-import SignUpForm from "./userComponents/SignUpForm";
+import Login from "./components/userComponents/Login";
+import UserProfile from "./components/userComponents/UserProfile";
+import SignUpForm from "./components/userComponents/SignUpForm";
 
 function App() {
   const [user,setUser] = useState(false);
@@ -21,18 +21,13 @@ function App() {
      <Route path="/" element={<LandingPage />} />
      <Route path="/employers/*" element={<Employers />} />
      <Route path="/jobform" element={<AddJob />} />
-     <Route path="/profile" element={<Profile />} />
+     <Route path="/profile" element={<EmployerProfile />} />
      <Route path="/employerJobs" element={<EmployerJobs />} />
      <Route path="/cards" element={<Cards />} />
-     <Route path="/usercards" element={<UserList />} />
+     <Route path="/userlist" element={<UserList />} />
      <Route path="/login" element={<Login />} />
      <Route path="/userprofile" element={< UserProfile/>} />
      <Route path="/signup" element={<SignUpForm />} />
-      {/* 
-      <Route path="/users" element={<Users/>} />
-      <Route path="/login" element={<Login/>} />
-      <Route path="/jobs" element={<Jobs/>} />
-      <Route path="/employers" element={<Employers/>} /> */}
     </Routes>    
     </>
    

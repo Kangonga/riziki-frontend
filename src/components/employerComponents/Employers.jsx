@@ -1,4 +1,4 @@
-import Logo from "../assets/sitelogo.jpg"
+import Logo from "../../assets/sitelogo.jpg"
 import Footer from "./Footer"
 import TalentCards from "./TalentCards"
 import { Link } from "react-router-dom"
@@ -18,7 +18,7 @@ export default function Employers(){
                         You can now hire the best talent in any given field.
                         We have the best there is out there, right here.
                     </h2>
-                    <Link to="jobform">
+                    <Link to="/jobform">
                         Get Started
                     </Link>
                     {/* <Link to="jobForm">

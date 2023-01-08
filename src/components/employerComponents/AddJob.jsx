@@ -1,5 +1,5 @@
 import EmployerNavBar from "./EmployerNavBar";
-import "../jobform.css"
+import "../../jobform.css"
 
 export default function AddJob(){
 return (

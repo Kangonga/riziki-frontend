@@ -1,11 +1,11 @@
-import NavBar from "./NavBar";
-import logo from "../assets/sitelogo.jpg"
+import EmployerNavBar from "./EmployerNavBar"
+import logo from "../../assets/sitelogo.jpg"
 
 
 export default function UserList(){
     return (
         <body id="userlist">
-            <NavBar />
+            <EmployerNavBar />
             <section id="cardContainer">
                 <div className="card">
                     <figure>

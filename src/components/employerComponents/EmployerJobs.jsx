@@ -1,6 +1,6 @@
 import { useState } from "react"
 import EmployerNavBar from "./EmployerNavBar"
-import cta from "../assets/cta.jpg"
+import cta from "../../assets/cta.jpg"
 import { Link } from "react-router-dom"
 
 

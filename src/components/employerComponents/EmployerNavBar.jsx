@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import logo from "../assets/sitelogo.jpg"
+import logo from "../../assets/sitelogo.jpg"
 
 export default function EmployerNavBar(){
     return(
@@ -9,10 +9,10 @@ export default function EmployerNavBar(){
                 <img src={logo} alt="sitelogo" className="sitelogo" />
             </figure>
             <nav>
-            <Link to="/users">Find Talent</Link>
+            <Link to="/userlist">Find Talent</Link>
             <Link to="/jobform">Post a Job</Link>
-            <Link to="/myjobs">My Jobs</Link>
-            <Link to="/Profile">My Profile</Link>
+            <Link to="/employerJobs">My Jobs</Link>
+            <Link to="/profile">My Profile</Link>
             <Link to="/employers" id="login">Login</Link>
             </nav>
             </header>

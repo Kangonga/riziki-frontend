@@ -1,5 +1,5 @@
 import UserNavBar from "./UserNavBar"
-import Logo from "../assets/sitelogo.jpg"
+import Logo from "../../assets/sitelogo.jpg"
 
 
 export default function UserProfile(){

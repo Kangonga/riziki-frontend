@@ -1,6 +1,6 @@
-import logo from "../assets/sitelogo.jpg"
+import logo from "../../assets/sitelogo.jpg"
 import { Link } from "react-router-dom"
-import "../userprofile.css"
+import "../../userprofile.css"
 
 export default function UserNavBar(){
     return(

@@ -7,10 +7,12 @@ import EmployerJobs from "./components/EmployerJobs";
 import Cards from "./components/Cards";
 import './employers.css'
 import UserList from "./components/UserList";
+import { useState } from "react";
 
 
 
 function App() {
+  const [user,setUser] = useState(false);
   return (
   <>
    <Routes>

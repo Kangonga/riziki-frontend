@@ -1,7 +1,5 @@
-import { useState } from "react"
 import UserNavBar from "./UserNavBar"
 import Logo from "../assets/sitelogo.jpg"
-import EmployerProfile from "./EmployerProfile"
 
 
 export default function UserProfile(){

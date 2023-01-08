@@ -174,7 +174,7 @@ nav a:hover{
   height: 40vh;
   background-color:rgb(82, 10, 112);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   }
 .footerDiv h1{
   font-size: 1.6rem;
@@ -197,16 +197,17 @@ nav a:hover{
 @media (max-width:660px){
   .landingPageFooter{
     height:fit-content;
-    display:grid;
-    grid-template-columns:repeat(1,1fr);
+    display:flex;
     padding-bottom: 1rem;
+    flex-direction: column;
   }
   .footerDiv {
     color: white;
     margin: auto;
-    width:80%;
-    text-align: center;
     height: max-content;
+    width: 60%;
+  }.footerDiv h1 {
+    text-align: start;
   }
   .heroImage{
     display: none;
@@ -266,7 +267,7 @@ nav a:hover{
   .footerDiv {
     color: white;
     margin: auto;
-    width:80%
+    /* width:80% */
   }
   .categories {
     display: grid;

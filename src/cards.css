@@ -47,6 +47,21 @@
 }
 .personalDetails {
     height: 55%;
-    /* background-color: aquamarine; */
     font-size: 1.1rem;
+}
+#employerJobsPage #cardContainer {
+    grid-template-columns: repeat(auto-fill,minmax(30rem,1fr));
+
+}
+.jobDetails {
+    height: 100%;
+    /* background-color: aquamarine; */
+}
+
+.jobDetails h1 {
+    font-size: 1.3rem;
+    margin: .5rem;
+}
+.jobDetails h2 {
+    font-size:1.1rem
 }

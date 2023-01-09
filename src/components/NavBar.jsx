@@ -10,7 +10,7 @@ export default function NavBar(){
                 <img src={logo} alt="sitelogo" className="sitelogo" />
             </figure>
             <nav>
-            <Link to="/users">Find Jobs</Link>
+            <Link to="/jobs">Find Jobs</Link>
             <Link to="/employers">Find Talent</Link>
             {/* <Link to="/employerProfile">My Profile</Link> */}
             <Link to="/employers" id="login">Login</Link>

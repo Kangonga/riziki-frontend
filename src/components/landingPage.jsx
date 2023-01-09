@@ -6,7 +6,7 @@ import cta from "../assets/cta.jpg"
 
 export default function LandingPage(){
     return (
-        <div className="container" id="landingPageContainer">
+        <div id="landingPageContainer">
            <NavBar />
             <main>
                 <div id="employerContainer" className="dashboard">

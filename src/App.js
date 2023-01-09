@@ -28,10 +28,42 @@ function App() {
      <Route path="/login" element={<Login />} />
      <Route path="/userprofile" element={< UserProfile/>} />
      <Route path="/signup" element={<SignUpForm />} />
+     <Route path="test" element={<FlavorForm />} />
     </Routes>    
     </>
    
   );
 }
+function FlavorForm() {
+  const [value, setValue] = useState(["initial"]);
 
+  function handleChange(event) {
+    let selected = [...event.target.selectedOptions].map(option =>option.value);
+    console.log("before")
+    setValue(()=>selected);
+    console.log(value)
+    console.log("after");
+    // console.log(event.target.selectedOptions[0].value);
+  }
+  function handleSubmit(event) {
+    alert('Your favorite flavor is: ' + value);
+    event.preventDefault();
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Pick your favorite flavor:
+        <select multiple={true} value={value} onChange={handleChange}>
+          <option value="grapefruit">Grapefruit</option>
+          <option value="lime">Lime</option>
+          <option value="coconut">Coconut</option>
+          <option value="mango">Mango</option>
+        </select>
+      </label>
+      <input type="submit" value="Submit" />
+      {value}
+    </form>
+  );
+}
 export default App;

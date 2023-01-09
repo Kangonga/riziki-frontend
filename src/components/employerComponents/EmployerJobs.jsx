@@ -39,7 +39,7 @@ function JobList(){
                             <li>Sinatra</li>
                             <li>React JS</li>
                         </ul>
-                        <p>Job Description</p>
+                        <p>Job Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quam quod eligendi cum praesentium nesciunt voluptatum quos. Voluptate, modi repellat!</p>
                         </section>
                 </div>
         </>

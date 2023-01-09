@@ -12,6 +12,8 @@ import { useState } from "react";
 import Login from "./components/userComponents/Login";
 import UserProfile from "./components/userComponents/UserProfile";
 import SignUpForm from "./components/userComponents/SignUpForm";
+import JobList from "./components/userComponents/JobList";
+import UserJobs from "./components/userComponents/UserJobs";
 
 function App() {
   const [user,setUser] = useState(false);
@@ -28,6 +30,8 @@ function App() {
      <Route path="/login" element={<Login />} />
      <Route path="/userprofile" element={< UserProfile/>} />
      <Route path="/signup" element={<SignUpForm />} />
+     <Route path="/joblist" element={<JobList />} />
+     <Route path="/userjobs" element={<UserJobs />} />
     </Routes>    
     </>
    

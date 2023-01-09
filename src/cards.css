@@ -30,6 +30,7 @@
     border: 2px solid darkturquoise;
     border-radius: 10px;
     text-align: center;
+
 }
 #cardContainer figure{
         height: 45%;
@@ -64,4 +65,20 @@
 }
 .jobDetails h2 {
     font-size:1.1rem
+}
+
+.job-list {
+   height:max-content;
+   padding-bottom: 2rem;
+
+}
+.button {
+    width: 80px;
+    padding: 0%;
+    margin: auto;
+    height: 2rem;
+}
+.job-description {
+    padding: 0.5rem;
+    text-align: left;
 }

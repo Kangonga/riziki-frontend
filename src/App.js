@@ -2,7 +2,6 @@ import {Routes, Route} from "react-router-dom"
 import Employers from "./components/employerComponents/Employers";
 import LandingPage from "./components/landingPage";
 import AddJob from "./components//employerComponents/AddJob"
-// import Profile from "./components//employerComponents/Profile";
 import EmployerProfile from "./components/employerComponents/EmployerProfile";
 import EmployerJobs from "./components//employerComponents/EmployerJobs";
 import Cards from "./components/Cards";
@@ -12,6 +11,7 @@ import { useState } from "react";
 import Login from "./components/userComponents/Login";
 import UserProfile from "./components/userComponents/UserProfile";
 import SignUpForm from "./components/userComponents/SignUpForm";
+import Jobs from "./components/jobs";
 
 function App() {
   const [user,setUser] = useState(false);
@@ -29,6 +29,7 @@ function App() {
      <Route path="/userprofile" element={< UserProfile/>} />
      <Route path="/signup" element={<SignUpForm />} />
      <Route path="test" element={<FlavorForm />} />
+     <Route path="/jobs" element={<Jobs />} />
     </Routes>    
     </>
    

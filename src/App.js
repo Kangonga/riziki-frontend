@@ -8,18 +8,25 @@ import Cards from "./components/Cards";
 import './employers.css'
 import UserList from "./components/employerComponents/UserList";
 import { useState } from "react";
+import { createContext } from "react";
 import Login from "./components/Login";
 import UserProfile from "./components/userComponents/UserProfile";
 import SignUpForm from "./components/userComponents/SignUpForm";
 import Jobs from "./components/jobs";
-import NonAdmins from "./NonAdmin";
+// import {UserContext} from "./UserContext";
+// import {useContext} from "react"
+
+export const UserContext = createContext(null)
 
 function App() {
-  // <NonAdmins />
   const [user,setUser] = useState({})
   return (
   <>
-   <Routes>
+  <UserContext.Provider value={{
+    user,setUser
+  }}>
+
+    <Routes>
      <Route path="/" element={<LandingPage />} />
      <Route path="/employers/*" element={<Employers />} />
      <Route path="/jobform" element={<AddJob />} />
@@ -32,8 +39,10 @@ function App() {
      <Route path="/signup" element={<SignUpForm />} />
      <Route path="test" element={<FlavorForm />} />
      <Route path="/jobs" element={<Jobs />} />
-     <Route path="/list" element={<NonAdmins />} />
-    </Routes>    
+     {/* <Route path="/list" element={<NonAdmins />} /> */}
+    </Routes>   
+  </UserContext.Provider>
+    
     </>
    
   );

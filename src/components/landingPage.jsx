@@ -3,12 +3,16 @@ import TalentCards from "./employerComponents/TalentCards"
 import Footer from "./employerComponents/Footer"
 import { Link } from "react-router-dom"
 import cta from "../assets/cta.jpg"
+import { useContext } from "react"
+import { UserContext } from "../App"
 
 export default function LandingPage(){
+    const {user} = useContext(UserContext)
     return (
         <div id="landingPageContainer">
            <NavBar />
             <main>
+                {console.log(user.name)}
                 <div id="employerContainer" className="dashboard">
                 <figure>
                     <img className="heroImage" src={cta} alt="" />

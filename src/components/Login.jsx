@@ -4,8 +4,8 @@ import './userComponents/Login.css';
 import { Navigate } from "react-router-dom";
 
 
-export default function Login ({formSwitch}) {
-    
+export default function Login () {
+   
     return (
         <>
         {/* {console.log(me)} */}
@@ -19,18 +19,37 @@ export default function Login ({formSwitch}) {
 
 //export default Login
 function LoginForm() {
+  const [loginData,setLoginData] = useState({
+    username:"",
+    password:"",
+  })
+
+  function handleChange(e){
+    setLoginData({
+      ...loginData,
+      [e.target.name]:e.target.value
+        }
+      )
+    }
+
+    function handleSubmit(e){
+      e.preventDefault()
+      console.log(loginData)
+    }
     return(
       <div className="loginContainer">
         <div className="log-form-container">
             <h2>Login</h2>
 
-        <form className="login-form" >
+        <form className="login-form" onSubmit={handleSubmit}>
 
-        <label htmlFor="email">username</label>
+        <label htmlFor="username">username</label>
           <input
           id="username"
           name="username" 
           type= "text" 
+          value={loginData.username}
+          onChange={handleChange}
           placeholder="your username"
           required = 'required'
           />
@@ -39,6 +58,8 @@ function LoginForm() {
           <input
           id="password"
           name="password"
+          value={loginData.password}
+          onChange={handleChange}
           type="password"
           placeholder="Enter password"
           required = 'required'
@@ -54,7 +75,7 @@ function LoginForm() {
     )
 }
 
-export function Login2 ({formSwitch}) {    
+export function Login2 () {    
   return (
       <main id='loginPage'>
           <section id='loginContainer'>

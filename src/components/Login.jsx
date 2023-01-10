@@ -76,7 +76,7 @@ function LoginForm() {
         <button type="submit">Log In</button>
     
         </form>
-        <Link to="/signup" className="link-btn" >Don't have an account? sign Up</Link>
+        <Link to="/signup" className="link-btn" >Don't have an account? Sign Up</Link>
     </div>
       </div>
     

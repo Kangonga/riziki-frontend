@@ -18,7 +18,7 @@ export default function AddJob(){
     }
     function handleSubmit(e){
         e.preventDefault()
-        fetch("url",{
+        fetch("url/user.id",{
             method:"POST",
             headers:{"content-type": "application/"},
             body:JSON.stringify(jobData)

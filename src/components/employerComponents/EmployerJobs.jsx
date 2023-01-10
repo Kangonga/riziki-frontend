@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import EmployerNavBar from "./EmployerNavBar"
 import cta from "../../assets/cta.jpg"
 import { Link } from "react-router-dom"
@@ -6,43 +6,52 @@ import { Link } from "react-router-dom"
 
 export default function EmployerJobs(){
     const [jobs,setJobs] = useState(1)
+    useEffect(()=>{
+        fetch("url/id")
+        .then(resp=>resp.json())
+        .then(data=>setJobs(data))
+    })
     return(
         <div id="employerJobsPage">
             <EmployerNavBar />
             <section id="cardContainer">
-                {/* <NoJobs /> */}
-                <JobList />
-                <JobList />
-                <JobList />
-                <JobList />
-                <JobList />
-
+                {!jobs? <NoJobs />: <JobList jobs={jobs}/>}
             </section>
         </div>
     )
 }
 
-function JobList(){
+function JobList({jobs}){
     return(
         <>
-                <div className="card">
-                    <section className="jobDetails">
-                    <h1>Job Title</h1>
-                    <h2>Job Category</h2>
-                        <p>Status: Complete/matched/active</p>
-                        <p>Main Skill: Ruby on Rails</p>
-                        <p>Experience Level: Expert/Intermediate/Junior</p>
-                        <p>Name of contractor: name/none</p>
-                        <p>Other Skills Needed:</p>
-                        <ul className="otherSkills">
-                            <li>JavaScript</li>
-                            <li>Sinatra</li>
-                            <li>React JS</li>
-                        </ul>
-                        <p>Job Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quam quod eligendi cum praesentium nesciunt voluptatum quos. Voluptate, modi repellat!</p>
-                        </section>
-                </div>
+            {jobs.map((job,index)=>{
+                <JobCard key={index} job={job} />
+            })}
         </>
+    )
+}
+
+function JobCard({job}){
+    return(
+    <>
+    <div className="card">
+            <section className="jobDetails">
+            <h1>Job Title</h1>
+            <h2>Job Category</h2>
+                <p>Status: Complete/matched/active</p>
+                <p>Main Skill: Ruby on Rails</p>
+                <p>Experience Level: Expert/Intermediate/Junior</p>
+                <p>Name of contractor: name/none</p>
+                <p>Other Skills Needed:</p>
+                <ul className="otherSkills">
+                    <li>JavaScript</li>
+                    <li>Sinatra</li>
+                    <li>React JS</li>
+                </ul>
+                <p>Job Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quam quod eligendi cum praesentium nesciunt voluptatum quos. Voluptate, modi repellat!</p>
+                </section>
+    </div>
+    </>
     )
 }
 

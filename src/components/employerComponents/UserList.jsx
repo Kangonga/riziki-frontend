@@ -1,30 +1,47 @@
 import EmployerNavBar from "./EmployerNavBar"
 import logo from "../../assets/sitelogo.jpg"
+import { useEffect, useState } from "react"
 
 
 export default function UserList(){
+    const [userList,setUserList] = useState([])
+    useEffect(()=>{
+        fetch("http://127.0.0.1:3000/jobseekers")
+        .then(response => response.json())
+        .then(data=>setUserList(data))
+    })
     return (
-        <body id="userlist">
+        <div id="userlist">
             <EmployerNavBar />
             <section id="cardContainer">
-                <div className="card">
+               {userList?.map((user,index)=>{
+                return <UserCard user={user}key={index} />
+               })}
+            </section>
+        </div>
+    )
+}
+
+function UserCard({user}){
+    return(
+        <>
+         <div className="card">
                     <figure>
                         <img src={logo} alt="personIcon" />
                     </figure>
                     <section className="personalDetails">
-                        <p>Name: John Doe</p>
-                        <p>Main Skill: Ruby on Rails</p>
-                        <p>Rating: 5/5</p>
-                        <p>No. of Jobs: 1 job</p>
-                        <p>Other Skills:</p>
-                        <ul className="otherSkills">
+                        <p>Name: {user.username}</p>
+                        <p>Main Skill: {user.skills}</p>
+                        <p>Rating: {user.rating}</p>
+                        <p>No. of Jobs: {user.jobs_done}</p>
+                        <p>Other Skills: soft skills</p>
+                        {/* <ul className="otherSkills">
                             <li>JavaScript</li>
                             <li>Sinatra</li>
                             <li>React JS</li>
-                        </ul>
+                        </ul> */}
                     </section>
                 </div>
-            </section>
-        </body>
+        </>
     )
 }

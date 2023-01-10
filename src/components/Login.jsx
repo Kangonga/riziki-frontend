@@ -10,7 +10,7 @@ export default function Login () {
   const {user} = useContext(UserContext)
     return (
         <>
-        {user.id? <Navigate to="/userprofile" />:null}
+        {user?.username?<Navigate to={user.role=="user"?"/userprofile":"/employers"} />:null}
         <LoginForm />
         {/* <Test /> */}
 

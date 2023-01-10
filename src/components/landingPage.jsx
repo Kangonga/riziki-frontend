@@ -12,7 +12,6 @@ export default function LandingPage(){
         <div id="landingPageContainer">
            <NavBar />
             <main>
-                {console.log(user.name)}
                 <div id="employerContainer" className="dashboard">
                 <figure>
                     <img className="heroImage" src={cta} alt="" />

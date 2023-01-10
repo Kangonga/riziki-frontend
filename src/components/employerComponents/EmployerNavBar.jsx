@@ -1,7 +1,13 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { UserContext } from "../../App"
 import logo from "../../assets/sitelogo.jpg"
 
 export default function EmployerNavBar(){
+    const {user,setUser} = useContext(UserContext)
+    function logOut(){
+        setUser({})
+    }
     return(
         <>
          <header className="header">
@@ -13,7 +19,7 @@ export default function EmployerNavBar(){
             <Link to="/jobform">Post a Job</Link>
             <Link to="/employerJobs">My Jobs</Link>
             <Link to="/profile">My Profile</Link>
-            <Link to="/employers" id="login">Login</Link>
+            <Link to="/login" id="login">{user.id?"Log Out":"Log In"}</Link>
             </nav>
             </header>
         </>

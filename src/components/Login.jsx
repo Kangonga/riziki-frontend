@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 import './userComponents/Login.css';
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../App";
+import NavBar from "./NavBar";
 
 
 export default function Login () {
-   const {user,setUser} = useContext(UserContext)
+  const {user} = useContext(UserContext)
     return (
         <>
-        {/* {console.log(me)} */}
-        {/* {user?console.log(user):""} */}
-        {/* <Navigate to="/dashboard" />:<Loginone /> */}
-        <LoginForm user={user} setUser={setUser}/>
+        {user.id? <Navigate to="/userprofile" />:null}
+        <LoginForm />
         {/* <Test /> */}
 
          </>
@@ -21,7 +20,8 @@ export default function Login () {
 }
 
 
-function LoginForm({user,setUser}) {
+function LoginForm() {
+  const {user,setUser} = useContext(UserContext)
 
   const [errors,setErrors] = useState()
   const [loginData,setLoginData] = useState({
@@ -48,14 +48,22 @@ function LoginForm({user,setUser}) {
     .then(resp=>{
       if(resp.ok){
         setErrors(false)
+        return resp.json()
       }
       else {
         setErrors(true)
+        setUser({})
       }
     })
+    .then(data=>{
+      setUser(data)
+      console.log(user)
+    }
+      )
   }
 
   return(
+   
     <div className="loginContainer">
       <div className="log-form-container">
           <h2>Login</h2>

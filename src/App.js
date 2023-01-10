@@ -7,7 +7,7 @@ import EmployerJobs from "./components//employerComponents/EmployerJobs";
 import Cards from "./components/Cards";
 import './employers.css'
 import UserList from "./components/employerComponents/UserList";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { createContext } from "react";
 import Login from "./components/Login";
 import UserProfile from "./components/userComponents/UserProfile";
@@ -16,16 +16,16 @@ import Jobs from "./components/jobs";
 // import {UserContext} from "./UserContext";
 // import {useContext} from "react"
 
-export const UserContext = createContext(null)
+export const UserContext = createContext()
+
 
 function App() {
+  // const [user,setUser] = useState({name:"first"})
   const [user,setUser] = useState({})
   return (
   <>
-  <UserContext.Provider value={{
-    user,setUser
-  }}>
 
+  <UserContext.Provider value={{user,setUser}}>
     <Routes>
      <Route path="/" element={<LandingPage />} />
      <Route path="/employers/*" element={<Employers />} />
@@ -40,16 +40,35 @@ function App() {
      <Route path="test" element={<FlavorForm />} />
      <Route path="/jobs" element={<Jobs />} />
      {/* <Route path="/list" element={<NonAdmins />} /> */}
-    </Routes>   
+    </Routes>
   </UserContext.Provider>
     
     </>
    
   );
 }
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function FlavorForm() {
   const [value, setValue] = useState(["initial"]);
-
+  const {user} = useContext(UserContext)
   function handleChange(event) {
     let selected = [...event.target.selectedOptions].map(option =>option.value);
     console.log("before")
@@ -65,7 +84,8 @@ function FlavorForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
+      
+      {/* <label>
         Pick your favorite flavor:
         <select multiple={true} value={value} onChange={handleChange}>
           <option value="grapefruit">Grapefruit</option>
@@ -75,8 +95,9 @@ function FlavorForm() {
         </select>
       </label>
       <input type="submit" value="Submit" />
-      {value}
+      {value} */}
+     <h1>{user.username}</h1>
+     {console.log(user)}
     </form>
   );
-}
-export default App;
+    }

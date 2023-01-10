@@ -5,11 +5,11 @@ import { Link } from "react-router-dom"
 
 
 export default function EmployerJobs(){
-    const [jobs,setJobs] = useState(1)
+    const [jobs,setJobs] = useState([])
     useEffect(()=>{
-        fetch("url/id")
-        .then(resp=>resp.json())
-        .then(data=>setJobs(data))
+        // fetch("url/id")
+        // .then(resp=>resp.json())
+        // .then(data=>setJobs(data))
     })
     return(
         <div id="employerJobsPage">
@@ -24,7 +24,7 @@ export default function EmployerJobs(){
 function JobList({jobs}){
     return(
         <>
-            {jobs.map((job,index)=>{
+            {jobs?.map((job,index)=>{
                 <JobCard key={index} job={job} />
             })}
         </>
@@ -78,11 +78,5 @@ function NoJobs(){
             </div>
             </main>  
         </div>
-    )
-}
-
-function JobCards(){
-    return (
-        <></>
     )
 }

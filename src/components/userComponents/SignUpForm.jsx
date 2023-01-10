@@ -1,52 +1,62 @@
 import './Profile.css'
 import React, { useState} from 'react'
+import {Link} from "react-router-dom"
 
-function SignUpForm({formSwitch}) {
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [description, setDescription] = useState("")
-    const [country, SetCountry] = useState("Kenya")
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log("pup")
-    }
-  return (
-    <div>SignUpForm
-         <button className="link-btn" onClick={() => formSwitch("login")}>Already have an  account? Login</button>
+function SignUpForm() {
+  return(
+    <div className="loginContainer">
+      <div className="log-form-container">
+          <h2>Sign Up</h2>
 
-         <div >
-         <form className='form-container' onSubmit={handleSubmit}>
-            <h1>Let's get started 👋 </h1>
-            <label htmlFor='name'>Username</label>
-            <input 
-            type="text" name="name" placeholder="Enter your name"  value={name}
-            onChange={(e) => setName(e.target.value)} />
-            <label htmlFor='email'>Email</label>
-            <input type="email" name="email" placeholder='email' 
-            value={email}
-            onChange={(e) => setEmail(e.target.value) }
-            />
-            <label htmlFor='country'>Country</label>
-            <select name='country'
-            value={country}
-            onChange={(e) => SetCountry(e.target.value)}
-            >
-                <option>Kenya</option>
-                <option>Uganda</option>
-                <option>Tanzania</option>
-                <option>Rwanda</option>
-                <option>Sudan</option>
-                <option>Ethopia</option>
-            </select>
-            <label htmlFor='description'>Description</label>
-            <input type="text" name="description"  placeholder='description'
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            />
-        </form>
-        <button type="submit">Submit</button>         </div>
+      <form className="login-form" >
+
+      <label htmlFor="email">Username</label>
+        <input
+        id="username"
+        name="username" 
+        type= "text" 
+        placeholder="your username"
+        required = 'required'
+        />
+
+
+      <label htmlFor="email">email</label>
+        <input
+        id="email"
+        name="email" 
+        type= "email" 
+        placeholder="youremail@gmail.com"
+        required = 'required'
+        />
+
+      <label htmlFor="password">password</label>
+        <input
+        id="password"
+        name="password"
+        type="password"
+        placeholder="Enter password"
+        required = 'required'
+        />
+
+      <label htmlFor="email">Role</label>
+        <select
+        id="userRole"
+        name="role" 
+        required = 'required'
+        >
+          <option value="user">Freelancer</option>
+          <option value="Employer">Client</option>
+        </select>
+
+
+      <button type="submit">Sign Up</button>
+  
+      </form>
+      <Link to="/login" className="link-btn" >Already have an account? Log In</Link>
+  </div>
     </div>
+  
   )
 }
 

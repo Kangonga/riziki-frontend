@@ -8,13 +8,15 @@ import Cards from "./components/Cards";
 import './employers.css'
 import UserList from "./components/employerComponents/UserList";
 import { useState } from "react";
-import Login from "./components/userComponents/Login";
+import Login from "./components/Login";
 import UserProfile from "./components/userComponents/UserProfile";
 import SignUpForm from "./components/userComponents/SignUpForm";
 import Jobs from "./components/jobs";
+import NonAdmins from "./NonAdmin";
 
 function App() {
-  const [user,setUser] = useState(false);
+  // <NonAdmins />
+  const [user,setUser] = useState({})
   return (
   <>
    <Routes>
@@ -30,6 +32,7 @@ function App() {
      <Route path="/signup" element={<SignUpForm />} />
      <Route path="test" element={<FlavorForm />} />
      <Route path="/jobs" element={<Jobs />} />
+     <Route path="/list" element={<NonAdmins />} />
     </Routes>    
     </>
    

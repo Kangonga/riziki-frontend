@@ -25,9 +25,17 @@ export default function AddJob(){
         })
         console.log(jobData)
     }
+    function handleSelectChange(e){
+        console.log(e.target.value)
+        setJobData({
+            ...jobData,
+            category: e.target.value
+        })
+    }
 
 return (
     <div id="jobFormPage">
+        {/* {console.log(jobData)} */}
         <EmployerNavBar />
         <section id="formContainer">
             <h1>Add a job</h1>
@@ -37,7 +45,14 @@ return (
 
             <div className="formLabels">
                 <label htmlFor="category">Job Category:*</label>
-                <input type="text" value={jobData.category} onChange={handleChange} required name="category"/>
+                <select value={jobData.category} onChange={handleChange} required name="category">
+                    <option value="I.T">I.T and Networking</option>
+                    <option value="writing">Writing and Translation</option>
+                    <option value="engineering">Engineering and Architecture</option>
+                    <option value="business">Sales and Marketing</option>
+                    <option value="software">Software Development</option>
+                    <option value="legal">Legal</option>
+                </select>
             </div>
 
 
@@ -56,14 +71,14 @@ return (
                 <input type="text" value={jobData.salary} onChange={handleChange} name="salary"/>
             </div>
 
-            <div className="formLabels">
+            {/* <div className="formLabels">
                 <label htmlFor="company">Status:</label>
                 <input type="text" name="status" />
-            </div>
+            </div> */}
 
             <div className="formLabels">
                 <label htmlFor="applicants">No. Of Applicants:</label>
-                <input type="text" value={"yow"} name="number_of_applicants" onChange={handleChange}/>
+                <input type="text" value={"0"} readOnly name="number_of_applicants" onChange={handleChange}/>
             </div>
 
             <button>Submit</button>            

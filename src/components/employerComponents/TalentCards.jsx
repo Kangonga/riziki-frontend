@@ -9,12 +9,12 @@ export default function TalentCards(){
                     </h1>
                     <h2>Looking for work? <Link>Browse jobs</Link></h2>
                     <section className="categories">
-                        <div>Writing and Translation</div>
-                        <div>Legal</div>
-                        <div>Engineering and Architecture</div>
-                        <div>Software development</div>
-                        <div>IT and networking</div>
-                        <div>Sales and marketing</div>
+                        <Link to="/userlist">Writing and Translation</Link>
+                        <Link to="/userlist">Legal</Link>
+                        <Link to="/userlist">Engineering and Architecture</Link>
+                        <Link to="/userlist">Software development</Link>
+                        <Link to="/userlist">IT and networking</Link>
+                        <Link to="/userlist">Sales and marketing</Link>
                     </section>
                 </section>
         </>

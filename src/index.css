@@ -145,7 +145,7 @@ button:active{
   margin: auto;
   padding: 2rem 0;
 }
-.categories div{
+.categories a{
   background-color: lightgray;
   /* background-color: lightgreen; */
   height: 5rem;

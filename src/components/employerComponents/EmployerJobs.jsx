@@ -15,21 +15,22 @@ export default function EmployerJobs(){
         <div id="employerJobsPage">
             <EmployerNavBar />
             <section id="cardContainer">
-                {!jobs? <NoJobs />: <JobList jobs={jobs}/>}
+                {/* {!jobs? <NoJobs />: <JobList jobs={jobs}/>} */}
+                <JobCard />
             </section>
         </div>
     )
 }
 
-function JobList({jobs}){
-    return(
-        <>
-            {jobs?.map((job,index)=>{
-                <JobCard key={index} job={job} />
-            })}
-        </>
-    )
-}
+// function JobList({jobs}){
+//     return(
+//         <>
+//             {jobs?.map((job,index)=>{
+//                 <JobCard key={index} job={job} />
+//             })}
+//         </>
+//     )
+// }
 
 function JobCard({job}){
     return(
@@ -42,13 +43,15 @@ function JobCard({job}){
                 <p>Main Skill: Ruby on Rails</p>
                 <p>Experience Level: Expert/Intermediate/Junior</p>
                 <p>Name of contractor: name/none</p>
-                <p>Other Skills Needed:</p>
-                <ul className="otherSkills">
+                {/* <p>Other Skills Needed:</p> */}
+                
+                <p>Job Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quam quod eligendi cum praesentium nesciunt voluptatum quos. Voluptate, modi repellat!</p>
+                {/* <ul className="otherSkills">
                     <li>JavaScript</li>
                     <li>Sinatra</li>
                     <li>React JS</li>
-                </ul>
-                <p>Job Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quam quod eligendi cum praesentium nesciunt voluptatum quos. Voluptate, modi repellat!</p>
+                </ul> */}
+                <button id="addJob">Delete</button>
                 </section>
     </div>
     </>

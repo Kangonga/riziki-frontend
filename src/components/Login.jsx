@@ -27,6 +27,7 @@ function LoginForm() {
   const [loginData,setLoginData] = useState({
     username:"",
     password:"",
+    role:""
   })
 
   function handleChange(e){
@@ -91,6 +92,18 @@ function LoginForm() {
         placeholder="Enter password"
         required = 'required'
         />
+
+        <label htmlFor="email">role</label>
+        <select
+        id="userRole"
+        name="role" 
+        required = 'required'
+        value={loginData.role}
+        onChange={handleChange}
+        >
+          <option value="user">Freelancer</option>
+          <option value="employer">Client</option>
+        </select>
 
       {errors&& <ErrorDiv />}
 

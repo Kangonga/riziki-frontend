@@ -51,7 +51,7 @@ function JobCard({job}){
                     <li>Sinatra</li>
                     <li>React JS</li>
                 </ul> */}
-                <button id="addJob">Delete</button>
+                {/* <button id="DeleteJob">Delete</button> */}
                 </section>
     </div>
     </>

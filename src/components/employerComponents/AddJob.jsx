@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function AddJob(){
     const [jobData,setJobData] = useState({
-        category:"",
+        category:"I.T",
         job_title:"",
         job_description:"",
         salary:"",
@@ -18,12 +18,15 @@ export default function AddJob(){
     }
     function handleSubmit(e){
         e.preventDefault()
-        fetch("url/user.id",{
+        fetch("http://127.0.0.1:3000/jobs",{
             method:"POST",
-            headers:{"content-type": "application/"},
-            body:JSON.stringify(jobData)
+            headers:{"content-type": "application/json"},
+            body:JSON.stringify({...jobData,
+            employer_id:1
+            })
         })
         console.log(jobData)
+        // e.target.reset()
     }
     function handleSelectChange(e){
         console.log(e.target.value)
@@ -41,7 +44,8 @@ return (
             <h1>Add a job</h1>
             <p>You know what you are looking for, We help you find them.</p>
             <p>Post your open positions and hire the best talent.</p>
-            <form id="addJob" onSubmit={handleSubmit}>
+            
+            <form id="addJobForm" onSubmit={handleSubmit}>
 
             <div className="formLabels">
                 <label htmlFor="category">Job Category:*</label>

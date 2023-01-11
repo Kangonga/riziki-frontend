@@ -26,6 +26,13 @@ export default function AddJob(){
             })
         })
         console.log(jobData)
+        setJobData({
+            category:"I.T",
+            job_title:"",
+            job_description:"",
+            salary:"",
+            number_of_applicants:0,
+        })
         // e.target.reset()
     }
     function handleSelectChange(e){

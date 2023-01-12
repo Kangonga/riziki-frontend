@@ -39,7 +39,7 @@ export default function EmployerProfile(){
     
                     <div className="profileInput"> 
                         <label htmlFor="">Password:</label>
-                        <input type="text" value={user.password}name="password"/>
+                        <input type="text" value={"**********"}name="password"/>
                     </div>
                     <div className="buttonContainer">
                         <button>Edit</button> 

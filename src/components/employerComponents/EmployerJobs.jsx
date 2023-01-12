@@ -48,6 +48,7 @@ function JobCard({job}){
                 {/* <p>Other Skills Needed:</p> */}
                 
                 <p>{job.job_description}</p>
+                <p>Number of applicants: {job.number_of_applicants}</p>
                 {/* <ul className="otherSkills">
                     <li>JavaScript</li>
                     <li>Sinatra</li>

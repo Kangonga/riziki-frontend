@@ -48,8 +48,8 @@ export default function EmployerProfile(){
                                
                 </form>
             </div>
-        </div>}
-        </>}          
+        </div>
+        </>}         
         </>
     )
     }

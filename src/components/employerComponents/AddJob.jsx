@@ -1,8 +1,12 @@
 import EmployerNavBar from "./EmployerNavBar";
 import "../../jobform.css"
-import { useState } from "react";
+import { useContext, useState } from "react";
+import userEvent from "@testing-library/user-event";
+import { UserContext } from "../../App";
+import { Navigate } from "react-router-dom";
 
 export default function AddJob(){
+    const {user} = useContext(UserContext)
     const [jobData,setJobData] = useState({
         category:"I.T",
         job_title:"",
@@ -45,7 +49,7 @@ export default function AddJob(){
 
 return (
     <div id="jobFormPage">
-        {/* {console.log(jobData)} */}
+        {!user.username?<Navigate to="/login" />:<>
         <EmployerNavBar />
         <section id="formContainer">
             <h1>Add a job</h1>
@@ -96,6 +100,12 @@ return (
             
         </form>
         </section>
+        
+        </>
+        
+        
+        }
+        
         
     </div>
 )

@@ -1,26 +1,34 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import EmployerNavBar from "./EmployerNavBar"
 import cta from "../../assets/cta.jpg"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
+import { UserContext } from "../../App"
 
 
 export default function EmployerJobs(){
     const [jobs,setJobs] = useState([])
+    const {user} = useContext(UserContext)
     useEffect(()=>{
         fetch("http://127.0.0.1:3000/jobs")
         .then(resp=>resp.json())
         .then(data=>setJobs(data.filter(job=>job.employer.id==1)));
     },[])
     return(
+    <>
+       {!user.username? <Navigate to="/login"/>:
+
         <div id="employerJobsPage">
             {console.log(jobs)}
             <EmployerNavBar />
             <section id="cardContainer">
-                {/* {jobs?  <JobList jobs={jobs}/>:<NoJobs />} */}
+                {jobs?  <JobList jobs={jobs}/>:<NoJobs />}
                 {/* <JobCard /> */}
-                <JobList jobs={jobs} />
+                {/* <JobList jobs={jobs} /> */}
             </section>
-        </div>
+        </div>}
+    </>
+     
+        
     )
 }
 

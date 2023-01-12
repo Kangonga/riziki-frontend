@@ -14,11 +14,13 @@ import UserProfile from "./components/userComponents/UserProfile";
 import SignUpForm from "./components/userComponents/SignUpForm";
 import JobList from "./components/userComponents/JobList";
 import UserJobs from "./components/userComponents/UserJobs";
+//import LoginForm from "./components/userComponents/LoginForm";
 
 function App() {
-  const [user,setUser] = useState(false);
+  
   return (
   <>
+
    <Routes>
      <Route path="/" element={<LandingPage />} />
      <Route path="/employers/*" element={<Employers />} />

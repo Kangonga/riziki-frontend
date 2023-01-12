@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import './Login.css';
 import { Navigate } from "react-router-dom";
 // import { UserContext } from "./UserContext";
@@ -8,6 +8,12 @@ export default function Login ({formSwitch}) {
     // const {me,setMe} = useContext(UserContext)
     const [user,setUser] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    // const userRef = useRef();
+
+    // useEffect(() => {
+    //   userRef.current.focus()
+    // }, [])
+
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(email)
@@ -49,6 +55,7 @@ export default function Login ({formSwitch}) {
         setPasswordConfirmation = {setPasswordConfirmation}
         setEmail = {setEmail}
         formSwitch = {formSwitch}
+        // userRef = {userRef}
         />}
         </>
       )
@@ -56,7 +63,7 @@ export default function Login ({formSwitch}) {
 }
 
 //export default Login
-function Loginone({handleSubmit,email,setEmail,setPassword,password,formSwitch}) {
+function Loginone({handleSubmit,email,setEmail,setPassword,password,formSwitch, userRef}) {
     return(
       <div className="loginContainer">
         <div className="log-form-container">
@@ -70,6 +77,7 @@ function Loginone({handleSubmit,email,setEmail,setPassword,password,formSwitch})
         placeholder="youremail@gmail.com"
         required = 'required'
         value = {email}
+        ref={userRef}
         onChange = {(e) => setEmail(e.target.value)}
         />
         <label htmlFor="password">password</label>

@@ -7,45 +7,47 @@ import { Link } from "react-router-dom"
 export default function EmployerJobs(){
     const [jobs,setJobs] = useState([])
     useEffect(()=>{
-        // fetch("url/id")
-        // .then(resp=>resp.json())
-        // .then(data=>setJobs(data))
-    })
+        fetch("http://127.0.0.1:3000/jobs")
+        .then(resp=>resp.json())
+        .then(data=>setJobs(data.filter(job=>job.employer.id==1)));
+    },[])
     return(
         <div id="employerJobsPage">
+            {console.log(jobs)}
             <EmployerNavBar />
             <section id="cardContainer">
-                {/* {!jobs? <NoJobs />: <JobList jobs={jobs}/>} */}
-                <JobCard />
+                {/* {jobs?  <JobList jobs={jobs}/>:<NoJobs />} */}
+                {/* <JobCard /> */}
+                <JobList jobs={jobs} />
             </section>
         </div>
     )
 }
 
-// function JobList({jobs}){
-//     return(
-//         <>
-//             {jobs?.map((job,index)=>{
-//                 <JobCard key={index} job={job} />
-//             })}
-//         </>
-//     )
-// }
+function JobList({jobs}){
+    return(
+        <>
+            {jobs?.map((job,index)=>{
+               return <JobCard key={index} job={job} />
+            })}
+        </>
+    )
+}
 
 function JobCard({job}){
     return(
     <>
     <div className="card">
             <section className="jobDetails">
-            <h1>Job Title</h1>
-            <h2>Job Category</h2>
+            <h1>{job.job_title}</h1>
+            <h2>{job.category}</h2>
                 <p>Status: Complete/matched/active</p>
                 <p>Main Skill: Ruby on Rails</p>
                 <p>Experience Level: Expert/Intermediate/Junior</p>
-                <p>Name of contractor: name/none</p>
+                <p>{job.employer.username}</p>
                 {/* <p>Other Skills Needed:</p> */}
                 
-                <p>Job Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quam quod eligendi cum praesentium nesciunt voluptatum quos. Voluptate, modi repellat!</p>
+                <p>{job.job_description}</p>
                 {/* <ul className="otherSkills">
                     <li>JavaScript</li>
                     <li>Sinatra</li>

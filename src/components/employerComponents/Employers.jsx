@@ -3,13 +3,16 @@ import Footer from "./Footer"
 import TalentCards from "./TalentCards"
 import { Link } from "react-router-dom"
 import EmployerNavBar from "./EmployerNavBar"
+import { useContext } from "react"
+import { UserContext } from "../../App"
 
 export default function Employers(){
+    const {user} = useContext(UserContext)
     return(
         <>
         <EmployerNavBar />
             <div id="employerContainer">
-                <UserCard />
+                <UserCard user={user}/>
                 <section className="employerIntro">
                     <h1>
                         How hiring should work.
@@ -32,14 +35,14 @@ export default function Employers(){
     )
 }
 
-function UserCard(){
+function UserCard({user}){
     return(
         <div id="userCard">
             <h1>My Profile</h1>
             <figure className="UserImage">
                 <img className="profileImage" src={Logo}alt="Profile icon" />
             </figure>
-            <input type="text" value="John Doe" name="employerName" id="username"/>
+            <input type="text" value={user?.username} name="employerName" id="username"/>
             <input type="text" value="Individual" name="company"/>
             <input type="text" value="Nairobi, Kenya" name="location"/>
             <input type="text" value="Posted Jobs: 0" name="postedJobs"/>

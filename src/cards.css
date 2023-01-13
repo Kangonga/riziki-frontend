@@ -33,7 +33,7 @@
     text-align: center;
 }
 #cardContainer figure{
-        height: 45%;
+        height: 35%;
         text-align: center;
         padding-top: 1rem;
 }
@@ -62,14 +62,14 @@
     max-width: 100vw;
     overflow-x: hidden;
 }
-.jobDetails h1 {
+.jobDetails h1{
     font-size: 1.3rem;
     margin: .5rem;
 }
-.jobDetails h2 {
+.jobDetails h2{
     font-size:1.1rem
 }
-.jobDetails p {
+.jobDetails p{
     text-align: left;
     padding: 0 .5rem;
 }
@@ -79,4 +79,25 @@
     height: 2rem;
     padding: 0;
     font-size: 1rem;
+}
+.card.applicantCard input{
+    padding: 0;
+    outline: 1px solid blue;
+    padding: .5rem;
+    display: block;
+    width: 70%;
+    margin: auto;
+}
+.card.applicantCard{
+    gap: .5rem;
+}
+.card.applicantCard>.personalDetails{
+    display: flex;
+    flex-direction: column;
+}
+.card.applicantCard button {
+    height: 2rem;
+    width: 30%;
+    margin: auto;
+    border: none;
 }

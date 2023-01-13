@@ -2,6 +2,9 @@ import userEvent from "@testing-library/user-event";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../App";
+import EmployerNavBar from "./EmployerNavBar";
+import logo from "../../assets/sitelogo.jpg"
+
 
 export default function Applicants(){
     const {job_id}= useParams()
@@ -26,6 +29,33 @@ export default function Applicants(){
     return(
         <>
             {console.log(applicants)}
+            <div id="userlist applicants">
+            <EmployerNavBar />
+            <section id="cardContainer">
+               {applicants?.map((user,index)=>{
+                return <UserCard user={user}key={index} />
+               })}
+            </section>
+        </div>
+        </>
+    )
+}
+
+function UserCard({user}){
+    return(
+        <>
+         <form className="card applicantCard" onSubmit={e=>e.preventDefault()}>
+                    <figure id="applicantFigure">
+                        <img src={logo} alt="personIcon" />
+                    </figure>
+                    <section className="personalDetails">
+                        <input value={`username: ${user.username}`}/>
+                        <input value={`skills: ${user.skills}`}/>
+                        <input value={`job rating${user.rating}/5`}/>
+                        <input value={`${user.employers.length}`}/>
+                        <button>Hire</button>
+                    </section>
+            </form>
         </>
     )
 }

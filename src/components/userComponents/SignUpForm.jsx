@@ -44,7 +44,7 @@ function SignUpForm() {
   return(
     <div className="loginContainer">
       <div className="log-form-container">
-          <h2>Login</h2>
+          <h2>Sign Up</h2>
 
       <form className="login-form" onSubmit={handleSubmit}>
 

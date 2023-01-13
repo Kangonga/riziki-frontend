@@ -9,9 +9,9 @@ export default function EmployerJobs(){
     const [jobs,setJobs] = useState([])
     const {user} = useContext(UserContext)
     useEffect(()=>{
-        fetch("http://127.0.0.1:3000/jobs")
+        fetch(`http://127.0.0.1:3000/jobs`)
         .then(resp=>resp.json())
-        .then(data=>setJobs(data.filter(job=>job.employer.id==1)));
+        .then(data=>setJobs(data.filter(job=>job.employer.id==user.id)));
     },[])
     return(
     <>
@@ -52,10 +52,10 @@ function JobCard({job}){
                 <p>Status: Complete/matched/active</p>
                 <p>Main Skill: Ruby on Rails</p>
                 <p>Experience Level: Expert/Intermediate/Junior</p>
-                <p>{job.employer.username}</p>
+                <p>Employer: {job.employer.username}</p>
                 {/* <p>Other Skills Needed:</p> */}
                 
-                <p>{job.job_description}</p>
+                <p>Job Description: {job.job_description}</p>
                 <p>Number of applicants: {job.number_of_applicants}</p>
                 {/* <ul className="otherSkills">
                     <li>JavaScript</li>

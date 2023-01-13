@@ -26,7 +26,7 @@ export default function AddJob(){
             method:"POST",
             headers:{"content-type": "application/json"},
             body:JSON.stringify({...jobData,
-            employer_id:1
+            employer_id:user.id
             })
         })
         console.log(jobData)
@@ -73,7 +73,7 @@ return (
 
             <div className="formLabels">
                 <label htmlFor="company">Job Title:</label>
-                <input type="text"value={jobData.title} onChange={handleChange} name="job_title"/>
+                <input type="text"value={jobData.job_title} onChange={handleChange} name="job_title"/>
             </div>
 
             <div className="formLabels">

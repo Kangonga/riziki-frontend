@@ -84,7 +84,7 @@ function SignUpForm() {
 
       {/* {errors&& <ErrorDiv />} */}
 
-      <button type="submit">Log In</button>
+      <button type="submit">Sign Up</button>
 
       </form>
       <Link to="/signup" className="link-btn" >Don't have an account? Sign Up</Link>

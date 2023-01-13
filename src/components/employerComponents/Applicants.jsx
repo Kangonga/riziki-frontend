@@ -20,18 +20,12 @@ export default function Applicants(){
         .then(resp=>resp.json())
         .then(data=>{
             setJobSeekers(data)
-            console.log("ids",jobseekers.filter(user=>(Array.from(applications.map(app=>app.jobseeker_id)).includes(user.id))))
+            setJobApplicants(jobseekers.filter(user=>(Array.from(applications.map(app=>app.jobseeker_id)).includes(user.id))))
         })
-        // .then(console.log(x));
     },[])
-    
-    {console.log("apps",applications)
-    console.log("seekers",jobseekers)
-    console.log("ids",jobseekers.filter(user=>(Array.from(applications.map(app=>app.jobseeker_id)).includes(user.id))))          
-    }
     return(
         <>
-
+            {console.log(applicants)}
         </>
     )
 }

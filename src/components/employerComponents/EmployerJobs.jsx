@@ -43,6 +43,7 @@ function JobList({jobs}){
 }
 
 function JobCard({job}){
+    const {user} = useContext(UserContext)
     return(
     <>
     <div className="card">
@@ -62,7 +63,7 @@ function JobCard({job}){
                     <li>Sinatra</li>
                     <li>React JS</li>
                 </ul> */}
-                {/* <button id="DeleteJob">Delete</button> */}
+                <Link to={`/applicants/${job.id}`} className="viewApplicantsButton">View Applications</Link>
                 </section>
     </div>
     </>

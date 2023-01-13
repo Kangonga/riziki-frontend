@@ -4,7 +4,6 @@ import cta from "../../assets/cta.jpg"
 import { Link, Navigate } from "react-router-dom"
 import { UserContext } from "../../App"
 
-
 export default function EmployerJobs(){
     const [jobs,setJobs] = useState([])
     const {user} = useContext(UserContext)

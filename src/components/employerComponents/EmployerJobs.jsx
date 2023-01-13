@@ -17,7 +17,7 @@ export default function EmployerJobs(){
        {!user.username? <Navigate to="/login"/>:
 
         <div id="employerJobsPage">
-            {console.log(jobs)}
+            {/* {console.log(jobs)} */}
             <EmployerNavBar />
             <section id="cardContainer">
                 {jobs?  <JobList jobs={jobs}/>:<NoJobs />}

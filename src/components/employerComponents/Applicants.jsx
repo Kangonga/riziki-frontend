@@ -23,17 +23,34 @@ export default function Applicants(){
         .then(resp=>resp.json())
         .then(data=>{
             setJobSeekers(data)
-            setJobApplicants(jobseekers.filter(user=>(Array.from(applications.map(app=>app.jobseeker_id)).includes(user.id))))
         })
     },[])
+    useEffect(()=>{
+        setJobApplicants(jobseekers?.filter(user=>(Array.from(applications.map(app=>app.jobseeker_id)).includes(user.id))))
+    },[])
+    function handleSubmit(e){
+        e.preventDefault();
+        const params={
+                employer_id:user.id,
+                job_id: job_id,
+                jobseeker_id:e.target.id.value,
+        }
+        console.log(params)
+        fetch("http://127.0.0.1:3000/matched_jobs", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(params)
+        })
+        .then(resp=>console.log(resp.json()))
+    }
     return(
         <>
-            {console.log(applicants)}
+            {/* {console.log(applicants)} */}
             <div id="userlist applicants">
             <EmployerNavBar />
             <section id="cardContainer">
-               {applicants?.map((user,index)=>{
-                return <UserCard user={user}key={index} />
+               {applicants?.map((jobseeker,index)=>{
+                return <UserCard user={jobseeker}key={index} handleSubmit={handleSubmit} />
                })}
             </section>
         </div>
@@ -41,18 +58,20 @@ export default function Applicants(){
     )
 }
 
-function UserCard({user}){
+function UserCard({user,handleSubmit}){
+  
     return(
         <>
-         <form className="card applicantCard" onSubmit={e=>e.preventDefault()}>
+         <form className="card applicantCard" onSubmit={handleSubmit}>
                     <figure id="applicantFigure">
                         <img src={logo} alt="personIcon" />
                     </figure>
                     <section className="personalDetails">
+                    <input type="hidden" name="id"value={`${user.id}`}/>
                         <input value={`username: ${user.username}`}/>
                         <input value={`skills: ${user.skills}`}/>
-                        <input value={`job rating${user.rating}/5`}/>
-                        <input value={`${user.employers.length}`}/>
+                        <input value={`job rating: ${user.rating}/5`}/>
+                        <input value={`Jobs done: ${user.employers.length}`}/>
                         <button>Hire</button>
                     </section>
             </form>

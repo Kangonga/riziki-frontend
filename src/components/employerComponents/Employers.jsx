@@ -45,7 +45,7 @@ function UserCard({user}){
             <input type="text" value={user?.username} name="employerName" id="username"/>
             <input type="text" value="Individual" name="company"/>
             <input type="text" value="Nairobi, Kenya" name="location"/>
-            <input type="text" value={`Posted Jobs: ${user.jobs.length}`} name="postedJobs"/>
+            <input type="text" value={`Posted Jobs: ${user?.jobs?.length}`} name="postedJobs"/>
         </div>
     )
 }

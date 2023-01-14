@@ -1,6 +1,6 @@
 import userEvent from "@testing-library/user-event";
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import { UserContext } from "../../App";
 import EmployerNavBar from "./EmployerNavBar";
 import logo from "../../assets/sitelogo.jpg"
@@ -13,28 +13,26 @@ export default function Applicants(){
     const [applications,setJobApplications] = useState([])
     const [matchedJobs,setMatchedJobs] = useState([])
     const {user} = useContext(UserContext)
-    useEffect(()=>{ 
-        fetch("http://127.0.0.1:3000/job_applications")
-        .then(resp=>resp.json())
-        .then(data=>setJobApplications(data.filter(app=>app.job_id==job_id)));
-    },[])
 
-    useEffect(()=>{
-        fetch("http://127.0.0.1:3000/jobseekers")
-        .then(resp=>resp.json())
-        .then(data=>{
-            setJobSeekers(data)
-        })
+    useEffect(()=> {
+        const fetchdata = async()=>{
+            await fetch("http://127.0.0.1:3000/job_applications")
+                .then(resp=>resp.json())
+                .then(data=>setJobApplications(data.filter(app=>app.job_id==job_id)));
+            
+            await fetch("http://127.0.0.1:3000/jobseekers")
+                .then(resp=>resp.json())
+                .then(data=>{setJobSeekers(data)})
+            
+            setJobApplicants()
+
+            await  fetch("http://127.0.0.1:3000/matched_jobs")
+                .then(resp=>resp.json())
+                .then(data=>setMatchedJobs(data.filter(app=>app.employer_id==user.id)))
+        }
+        fetchdata()
     },[])
-    useEffect(()=>{
-        setJobApplicants(jobseekers?.filter(user=>(Array.from(applications.map(app=>app.jobseeker_id)).includes(user.id))))
-    },[])
-    useEffect(()=>{
-        fetch("http://127.0.0.1:3000/matched_jobs")
-        .then(resp=>resp.json())
-        // .then(data=>setMatchedJobs(data))
-        .then(data=>setMatchedJobs(data.filter(app=>app.employer_id==user.id)))
-    },[])
+    
     function handleSubmit(e){
         e.preventDefault();
         const params={
@@ -42,29 +40,57 @@ export default function Applicants(){
                 job_id: job_id,
                 jobseeker_id:e.target.id.value,
         }
-        // console.log(params)
         fetch("http://127.0.0.1:3000/matched_jobs", {
             method: "POST",
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(params)
         })
-        .then(resp=>console.log(resp.json()))
+        // .then(resp=>console.log(resp.json()))
     }
+    
     return(
         <>
-            {/* {console.log(applicants)} */}
             <div id="userlist applicants">
             <EmployerNavBar />
             <section id="cardContainer">
-               {applicants?.map((jobseeker,index)=>{
+               {jobseekers?.filter(user=>(Array.from(applications.map(app=>app.jobseeker_id)).includes(user.id)))?.map((jobseeker,index)=>{
                 return <UserCard user={jobseeker}key={index} handleSubmit={handleSubmit} matched={matchedJobs}/>
+
                })}
             </section>
-            {console.log("matchde",matchedJobs)}
         </div>
         </>
     )
 }
+
+
+function NoApplicants(){
+    return (<>
+        <div className="container" id="landingPageContainer">
+            <main>
+                <div id="employerContainer" className="dashboard">
+                {/* <figure>
+                    <img className="heroImage" src={cta} alt="" />
+                </figure> */}
+                <section className="employerIntro">
+                    <h1>
+                        There are currently no applicants for this job.
+                    </h1>
+                    <h2>
+                        You can now hire the best talent in any given field.
+                        We have the best there is out there, right here.
+                    </h2>
+                    <Link to="/jobform">
+                        Get Started
+                    </Link>
+                </section>
+            </div>
+            </main>  
+        </div>
+    </>)
+}
+
+
 
 function UserCard({user,handleSubmit,matched}){
   

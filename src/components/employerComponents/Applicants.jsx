@@ -11,6 +11,7 @@ export default function Applicants(){
     const [jobseekers,setJobSeekers] = useState([])
     const [applicants,setJobApplicants] = useState([])
     const [applications,setJobApplications] = useState([])
+    const [matchedJobs,setMatchedJobs] = useState([])
     const {user} = useContext(UserContext)
     useEffect(()=>{ 
         fetch("http://127.0.0.1:3000/job_applications")
@@ -28,6 +29,12 @@ export default function Applicants(){
     useEffect(()=>{
         setJobApplicants(jobseekers?.filter(user=>(Array.from(applications.map(app=>app.jobseeker_id)).includes(user.id))))
     },[])
+    useEffect(()=>{
+        fetch("http://127.0.0.1:3000/matched_jobs")
+        .then(resp=>resp.json())
+        // .then(data=>setMatchedJobs(data))
+        .then(data=>setMatchedJobs(data.filter(app=>app.employer_id==user.id)))
+    },[])
     function handleSubmit(e){
         e.preventDefault();
         const params={
@@ -35,7 +42,7 @@ export default function Applicants(){
                 job_id: job_id,
                 jobseeker_id:e.target.id.value,
         }
-        console.log(params)
+        // console.log(params)
         fetch("http://127.0.0.1:3000/matched_jobs", {
             method: "POST",
             headers: { 'Content-Type': 'application/json'},
@@ -50,15 +57,16 @@ export default function Applicants(){
             <EmployerNavBar />
             <section id="cardContainer">
                {applicants?.map((jobseeker,index)=>{
-                return <UserCard user={jobseeker}key={index} handleSubmit={handleSubmit} />
+                return <UserCard user={jobseeker}key={index} handleSubmit={handleSubmit} matched={matchedJobs}/>
                })}
             </section>
+            {console.log("matchde",matchedJobs)}
         </div>
         </>
     )
 }
 
-function UserCard({user,handleSubmit}){
+function UserCard({user,handleSubmit,matched}){
   
     return(
         <>
@@ -72,7 +80,7 @@ function UserCard({user,handleSubmit}){
                         <input value={`skills: ${user.skills}`}/>
                         <input value={`job rating: ${user.rating}/5`}/>
                         <input value={`Jobs done: ${user.employers.length}`}/>
-                        <button>Hire</button>
+                        <button>{Math.max(...Array.from(matched?.map(job=>job.jobseeker_id)))>0?"Hired":"Hire"}</button>
                     </section>
             </form>
         </>

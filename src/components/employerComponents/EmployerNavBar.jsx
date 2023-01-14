@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Link } from "react-router-dom"
+import { Link,Navigate } from "react-router-dom"
 import { UserContext } from "../../App"
 import logo from "../../assets/sitelogo.jpg"
 
@@ -10,6 +10,7 @@ export default function EmployerNavBar(){
     }
     return(
         <>
+        {!user.username?<Navigate to="/login" />:null}
          <header className="header">
             <figure className="logoHolder">
                 <img src={logo} alt="sitelogo" className="sitelogo" />

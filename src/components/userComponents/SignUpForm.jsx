@@ -1,13 +1,17 @@
 import './Profile.css'
 import React, { useState} from 'react'
-import {Link, Navigate} from "react-router-dom"
+import {Link, Navigate, useNavigate} from "react-router-dom"
 
 
 function SignUpForm() {
+  const navigate = useNavigate();
   const [loginData,setLoginData] = useState({
     username:"",
     password:"",
-    role:""
+    email:"",
+    role:"",
+    company_name:"none",
+    admin_id:1
   })
   function handleChange(e){
     setLoginData({
@@ -20,14 +24,22 @@ function SignUpForm() {
   function handleSubmit(e){
     e.preventDefault()
 
-    fetch("http://127.0.0.1:8000/login", {
+    fetch("http://127.0.0.1:3000/employer/signup", {
       method: "POST",
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify(loginData)
     })
     .then(resp=>{
       if(resp.ok){
-        return resp.json()
+        setLoginData({
+          username:"",
+          password:"",
+          email:"",
+          role:"",
+          company_name:"none",
+          admin_id:1
+        })
+        return navigate("/login")
       }
       else {
         console.log("errors")
@@ -38,7 +50,7 @@ function SignUpForm() {
       // console.log(user)
     }
     );
-    <Navigate to="/login" />
+    
   }
 
   return(
@@ -56,6 +68,17 @@ function SignUpForm() {
         value={loginData.username}
         onChange={handleChange}
         placeholder="your username"
+        required = 'required'
+        />
+
+        <label htmlFor="email">email</label>
+        <input
+        id="email"
+        name="email" 
+        type= "email" 
+        value={loginData.email}
+        onChange={handleChange}
+        placeholder="your email"
         required = 'required'
         />
 
@@ -87,7 +110,7 @@ function SignUpForm() {
       <button type="submit">Sign Up</button>
 
       </form>
-      <Link to="/signup" className="link-btn" >Don't have an account? Sign Up</Link>
+      <Link to="/login" className="link-btn" >Already have an account? Sign In</Link>
   </div>
     </div>
   )

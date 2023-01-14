@@ -24,8 +24,6 @@ export default function Applicants(){
                 .then(resp=>resp.json())
                 .then(data=>{setJobSeekers(data)})
             
-            setJobApplicants()
-
             await  fetch("http://127.0.0.1:3000/matched_jobs")
                 .then(resp=>resp.json())
                 .then(data=>setMatchedJobs(data.filter(app=>app.employer_id==user.id)))
@@ -53,10 +51,10 @@ export default function Applicants(){
             <div id="userlist applicants">
             <EmployerNavBar />
             <section id="cardContainer">
-               {jobseekers?.filter(user=>(Array.from(applications.map(app=>app.jobseeker_id)).includes(user.id)))?.map((jobseeker,index)=>{
-                return <UserCard user={jobseeker}key={index} handleSubmit={handleSubmit} matched={matchedJobs}/>
-
-               })}
+                {jobseekers?.filter(user=>(Array.from(applications.map(app=>app.jobseeker_id)).includes(user.id))).length>0?
+                jobseekers?.filter(user=>(Array.from(applications.map(app=>app.jobseeker_id)).includes(user.id))).map((jobseeker,index)=>{
+                    return <UserCard user={jobseeker}key={index} handleSubmit={handleSubmit} matched={matchedJobs}/>}):<NoApplicants />
+                }
             </section>
         </div>
         </>

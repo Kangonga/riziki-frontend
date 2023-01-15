@@ -42,7 +42,7 @@ export default function JobList() {
   function handleSubmit(e) {
     e.preventDefault()
     setJob({
-    jobseeker_id: user.id,
+    jobseeker_id: user?.id,
     job_id: e.target.id.value,
     employer_id: e.target.employer_Id.value
     })

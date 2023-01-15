@@ -1,0 +1,84 @@
+#cardContainer{
+    /* background-color: rgb(238, 217, 222); */
+    width: 100%;
+    min-height: 70vh;
+    max-height: fit-content;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(25rem,1fr));
+    padding: 3rem;
+    gap: 1rem;
+    grid-auto-rows: minmax(20rem, 26rem);
+}
+.otherSkills {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* outline: 2px solid blueviolet; */
+}
+.otherSkills li {
+    background-color: darkturquoise;
+    width: max-content;
+    padding: .3rem;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+.card{
+    background-color: white;
+    border: 2px solid darkturquoise;
+    border-radius: 10px;
+    text-align: center;
+
+}
+#cardContainer figure{
+        height: 45%;
+        text-align: center;
+        padding-top: 1rem;
+}
+#cardContainer figure img{
+    height: 100%; 
+    border-radius: 10px;
+}
+.card{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+.personalDetails {
+    height: 55%;
+    font-size: 1.1rem;
+}
+#employerJobsPage #cardContainer {
+    grid-template-columns: repeat(auto-fill,minmax(30rem,1fr));
+
+}
+.jobDetails {
+    height: 100%;
+    /* background-color: aquamarine; */
+}
+
+.jobDetails h1 {
+    font-size: 1.3rem;
+    margin: .5rem;
+}
+.jobDetails h2 {
+    font-size:1.1rem
+}
+
+.job-list {
+   height:max-content;
+   padding-bottom: 2rem;
+
+}
+.button {
+    width: 80px;
+    padding: 0%;
+    margin: auto;
+    height: 2rem;
+}
+.job-description {
+    padding: 0.5rem;
+    text-align: left;
+}

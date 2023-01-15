@@ -3,7 +3,7 @@ import { UserContext } from '../../App'
 import UserNavBar from './UserNavBar'
 
  export default function UserJobs() {
-  const {user} = UserContext(UserContext)
+  // const {user} = UserContext(UserContext)
   const [matchedJobs, setMatchedJobs] = useState([])
 
   useEffect(() => {
@@ -21,7 +21,7 @@ import UserNavBar from './UserNavBar'
                        
         <section id='cardContainer' >
            {
-            matchedJobs.map((matchedJob, index) => {
+            matchedJobs?.map((matchedJob, index) => {
               return(
                 <MatchedJobs matchedJob={matchedJob} key={index}/>
               )

@@ -1,9 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import UserNavBar from './UserNavBar'
 import '../../cards.css'
+//import userEvent from '@testing-library/user-event'
 export default function JobList() {
 
   const [jobs, setJobs] = useState([])
+  const [job, setJob] = useState({
+    jobseeker_id: "",
+    job_id: "",
+    employer_id: ""
+
+  })
   const [status, setStatus] = useState("not applied")
   useEffect(() => {
     fetch("http://127.0.0.1:3000/jobs")
@@ -13,6 +20,34 @@ export default function JobList() {
     }
     )
   }, [])
+
+  function handleClick() {
+    fetch(`http://localhost:3000/job_applications/`, {
+      method: "POST",
+      headers:{
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+        body: JSON.stringify(
+         job
+        )
+    })
+    .then(response => console.log(response.json()))
+    .then((status) => {setStatus("applied")})
+    console.log("applied");
+
+
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    setJob({
+    jobseeker_id: 1,
+    job_id: e.target.id.value,
+    employer_id: e.target.employer_Id.value
+    })
+    console.log(job)
+  }
   
 
   return (
@@ -25,7 +60,7 @@ export default function JobList() {
             
             {jobs?.map((job,index) => {
                 return(
-                  <JobCard job={job} key={index} handleClick={handleClick}/>
+                  <JobCard job={job} key={index}  handleSubmit={handleSubmit} handleClick={handleClick}/>
                 )
               })}
               </section>
@@ -33,61 +68,35 @@ export default function JobList() {
       </div>   //className="card job-list"
    
   )
-  // function handleClick() {
-    // fetch(`http://localhost:3000/jobs/${jobs.id}`, {
-    //   method: "POST",
-    //   headers:{
-    //     "Content-Type": "application/json",
-    //     "Accept": "application/json"
-    //   },
-    //     body: JSON.stringify(
-    //       status
-    //         )
-    // })
-    // .then(response => response.json())
-    // .then((status) => {setStatus("applied")})
-    // console.log("applied");
-
-    // const data = { status: 'not applied' };
-
-// fetch(`http://localhost:3000/jobs/${jobs.id}`, {
-//   method: 'POST', // or 'PUT'
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify(data),
-// })
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log('Success:', data);
-//     setStatus("applied")
-//   })
-//   .catch((error) => {
-//     console.error('Error:', error);
-//   });
-//   }
   
-// }
+ }
+
+ 
+ 
 
 
-function JobCard ({job, handleClick}) {
+function JobCard ({job, handleClick, handleSubmit}) {
+  //Main Skill: Ruby on Rails
   return(
-    <div className="card job-list">
-    <h2>Job Title: {job.job_title}</h2>
+    <form  onSubmit={handleSubmit} className="card job-list">
+      <input type="hidden" name='id' value={job.id} />
+      <input type="hidden" name='employer_Id' value={job.employer.id} />
+      <label htmlFor="job_title">Job Title:</label>   
+    <input  value={job.job_title} />
 <h3>Job Category: {job.category}</h3>
-    <p>Main Skill: Ruby on Rails</p>
-    <p>Responsibilities: {job.responsibilities} </p>
-    <p>Salary: {job.salary}</p>
-    <p>Status: open/closed</p>
-    <p>No of applicants:</p>
-    <ul className="otherSkills">
-        <li>JavaScript</li>
-        <li>Sinatra</li>
-        <li>React JS</li>
-    </ul>
-    <p className='job-description'>Job Description: {job.job_description}</p>
+<label htmlFor="responsibilities">Responsibilities:</label>
+    <input
+    value={job.responsibilities}
+     /><label htmlFor="salary">Salary:</label>
+     <input
+     value={job.salary}
+      /><label htmlFor="job-description">Job Description:</label>
+      <input
+      value={job.job_description}
+       />
     <button onClick={handleClick} className='button'>Apply</button>
-     </div>
+    
+     </form>
   )
 }
 

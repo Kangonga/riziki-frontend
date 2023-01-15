@@ -1,16 +1,17 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { UserContext } from '../../App'
 import UserNavBar from './UserNavBar'
 
  export default function UserJobs() {
-  // const {user} = UserContext(UserContext)
+  const {user} = useContext(UserContext)
   const [matchedJobs, setMatchedJobs] = useState([])
-
+  const [jobs, setJobs] = useState([])
+  
   useEffect(() => {
     fetch("http://localhost:3000/matched_jobs")
     .then(response => response.json())
-    .then(data => {console.log(data)
-          setMatchedJobs(data)
+    .then(data => {
+          setMatchedJobs(data.filter(job=>job.jobseeker_id == user?.id))
     }
     )
   }, [])
@@ -59,11 +60,11 @@ function MatchedJobs({matchedJob}) {
     <div className='card job-list'>
       <h2>Job Title: {matchedJob.job.job_title}</h2>
         <h3>Company name: {matchedJob.job.company_name}</h3>
-            <p><strong>Status:</strong> Complete/matched/active</p>
-            <p><strong>Job Description:</strong> {matchedJob.job.job_description}</p>
-            <p><strong>Responsibilities:</strong> {matchedJob.job.responsibilities}</p>
-            <p><strong>Salary:</strong> {matchedJob.job.salary}</p>
-            <p><strong>No of applicants:</strong> {matchedJob.job.number_of_applicants}</p>
+            <p>Status: Complete/matched/active</p>
+            <p>Job Description: {matchedJob.job.job_description}</p>
+            <p>Responsibilities: {matchedJob.job.responsibilities}</p>
+            <p>Salary: {matchedJob.job.salary}</p>
+            <p>Employer: {matchedJob.employer.username}</p>
     </div>
   )
 }

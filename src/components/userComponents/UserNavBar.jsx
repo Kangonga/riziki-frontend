@@ -18,7 +18,7 @@ export default function UserNavBar(){
             <nav>
             {user.username&& <span>Hello {user?.username}</span>}
             <Link to="/jobs">Find Jobs</Link>
-            <Link to="/jobs">My Jobs</Link>
+            <Link to="/userjobs">My Jobs</Link>
             <Link onClick={logOut} to="/login" id="login">{user.id?"Log out":"Log in"}</Link>
             </nav>
             </header>

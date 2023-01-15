@@ -86,13 +86,3 @@
     background-color: darkturquoise;
     padding: 1rem;
 }
-
-
-@media (max-width:550px) {
-    #userCard{
-        display: none;
-    }
-    #employerContainer{
-        display: block;
-    }
-}

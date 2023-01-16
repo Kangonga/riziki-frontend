@@ -56,19 +56,19 @@ nav{
   /* text-align: center; */
   border-radius: 5px;
   padding: 0 1.5rem;
-  transform: translateY(0);
+  transform: translateX(0);
   transition: 0s;
   padding-bottom: 0;
   border-bottom: 0;
   padding-bottom: 0;
 }
 #login:hover{
-  /* transform: translateY(-5px); */
+  /* transform: translateX(-5px); */
   transition-duration: .2s;
 }
 #login:active {
   background-color: #810d0d;
-  transform: translateY(3px);
+  transform: translateX(3px);
 }
 .logoHolder{
   width: 30%;
@@ -106,7 +106,7 @@ button{
   color: white;
 }
 button:active{
-  transform:translateY(-5px);
+  transform:translateX(-5px);
   background-color:#810d0d;
   color:white;
 }
@@ -163,7 +163,7 @@ nav a {
 nav a:hover{
   border: none;
   text-decoration: none;
-  transform: translateY(-5px);
+  transform: translateX(-5px);
   transition: .5s;
   padding-bottom: 5px;
   /* border-bottom: 1px solid rebeccapurple; */

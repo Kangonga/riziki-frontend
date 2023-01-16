@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
 import UserNavBar from './userComponents/UserNavBar'
-import './cards.css'
 import { UserContext } from '../App'
 
 
@@ -67,7 +66,7 @@ function JobCard ({job, handleSubmit}) {
 
       <h3>Job Category: {job.category}</h3>
 
-      <input
+      <textarea
       value={`Responsibilities: ${job.responsibilities}`}
       />
      

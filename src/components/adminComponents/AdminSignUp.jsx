@@ -1,17 +1,14 @@
-import './Profile.css'
+import '../userComponents/Profile.css'
 import React, { useState} from 'react'
 import {Link, Navigate, useNavigate} from "react-router-dom"
 
 
-function SignUpForm() {
+function AdminSignUpForm() {
   const navigate = useNavigate();
   const [loginData,setLoginData] = useState({
-    username:"",
+    name:"",
     password:"",
     email:"",
-    role:"",
-    company_name:"none",
-    admin_id:1
   })
   function handleChange(e){
     setLoginData({
@@ -24,7 +21,7 @@ function SignUpForm() {
   function handleSubmit(e){
     e.preventDefault()
 
-    fetch("http://127.0.0.1:3000/signup", {
+    fetch("http://127.0.0.1:3000/admin/signup", {
       method: "POST",
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify(loginData)
@@ -32,14 +29,11 @@ function SignUpForm() {
     .then(resp=>{
       if(resp.ok){
         setLoginData({
-          username:"",
+          name:"",
           password:"",
           email:"",
-          role:"",
-          company_name:"none",
-          admin_id:1
         })
-        return navigate("/login")
+        return navigate("/adminLogin")
       }
       else {
         console.log("errors")
@@ -63,9 +57,9 @@ function SignUpForm() {
       <label htmlFor="username">username</label>
         <input
         id="username"
-        name="username" 
+        name="name" 
         type= "text" 
-        value={loginData.username}
+        value={loginData.name}
         onChange={handleChange}
         placeholder="your username"
         required = 'required'
@@ -93,26 +87,12 @@ function SignUpForm() {
         required = 'required'
         />
 
-        <label htmlFor="email">role</label>
-        <select
-        id="userRole"
-        name="role" 
-        required = 'required'
-        value={loginData.role}
-        onChange={handleChange}
-        >
-          <option value="user">Freelancer</option>
-          {/* <option value="employer">Client</option> */}
-        </select>
-
-      {/* {errors&& <ErrorDiv />} */}
-
       <button type="submit">Sign Up</button>
 
       </form>
-      <Link to="/login" className="link-btn" >Already have an account? Sign In</Link>
+      <Link to="/adminLogin" className="link-btn" >Already have an account? Sign In</Link>
   </div>
     </div>
   )
   }
-export default SignUpForm
+export default AdminSignUpForm

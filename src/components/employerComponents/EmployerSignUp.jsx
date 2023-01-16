@@ -1,9 +1,9 @@
-import './Profile.css'
+import "../userComponents/Profile.css"
 import React, { useState} from 'react'
 import {Link, Navigate, useNavigate} from "react-router-dom"
 
 
-function SignUpForm() {
+function EmployerSignUpForm() {
   const navigate = useNavigate();
   const [loginData,setLoginData] = useState({
     username:"",
@@ -24,7 +24,7 @@ function SignUpForm() {
   function handleSubmit(e){
     e.preventDefault()
 
-    fetch("http://127.0.0.1:3000/signup", {
+    fetch("http://127.0.0.1:3000/employer/signup", {
       method: "POST",
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify(loginData)
@@ -101,8 +101,8 @@ function SignUpForm() {
         value={loginData.role}
         onChange={handleChange}
         >
-          <option value="user">Freelancer</option>
-          {/* <option value="employer">Client</option> */}
+          {/* <option value="user">Freelancer</option> */}
+          <option value="employer">Client</option>
         </select>
 
       {/* {errors&& <ErrorDiv />} */}
@@ -115,4 +115,4 @@ function SignUpForm() {
     </div>
   )
   }
-export default SignUpForm
+export default EmployerSignUpForm

@@ -17,8 +17,10 @@ import Jobs from "./components/jobs";
 import Applicants from "./components/employerComponents/Applicants";
 import UserJobs from "./components/userComponents/UserJobs";
 import AppliedJobs from "./components/userComponents/AppliedJobs";
-// import {UserContext} from "./UserContext";
-// import {useContext} from "react"
+import MainPage from "./components/adminComponents/MainPage";
+import AdminLogin from "./components/adminComponents/AdminLogin";
+import AdminSignUpForm from "./components/adminComponents/AdminSignUp";
+import EmployerSignUpForm from "./components/employerComponents/EmployerSignUp";
 
 export const UserContext = createContext()
 
@@ -31,6 +33,7 @@ function App() {
 
   <UserContext.Provider value={{user,setUser}}>
     <Routes>
+    <Route path="/admin/*" element={<MainPage />} />
      <Route path="/" element={<LandingPage />} />
      <Route path="/employers/*" element={<Employers />} />
      <Route path="/jobform" element={<AddJob />} />
@@ -41,12 +44,15 @@ function App() {
      <Route path="/login" element={<Login />} />
      <Route path="/userprofile" element={< UserProfile/>} />
      <Route path="/signup" element={<SignUpForm />} />
+     <Route path="/employersignup" element={<EmployerSignUpForm />} />
      <Route path="test" element={<FlavorForm />} />
      <Route path="/jobs" element={<Jobs />} />
      <Route path="/applicants/*" element={<Applicants />} />
      <Route path="/applicants/:job_id" element={<Applicants />} />
      <Route path="/userjobs" element= {<UserJobs />} />
      <Route path="/userAppliedJobs" element={<AppliedJobs/>} />
+     <Route path="/adminLogin" element={<AdminLogin/>} />
+     <Route path="/adminSignUp" element={<AdminSignUpForm/>} />
     </Routes>
   </UserContext.Provider>
     

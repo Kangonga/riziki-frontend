@@ -17,12 +17,9 @@ export default function EmployerJobs(){
        {!user.username? <Navigate to="/login"/>:
 
         <div id="employerJobsPage">
-            {/* {console.log(jobs)} */}
             <EmployerNavBar />
             <section id="cardContainer">
                 {jobs?  <JobList jobs={jobs}/>:<NoJobs />}
-                {/* <JobCard /> */}
-                {/* <JobList jobs={jobs} /> */}
             </section>
         </div>}
     </>
@@ -45,24 +42,17 @@ function JobCard({job}){
     const {user} = useContext(UserContext)
     return(
     <>
-    <div className="card">
+    <div className="card"id="employerJobs">
             <section className="jobDetails">
             <h1>{job.job_title}</h1>
             <h2>{job.category}</h2>
-                <p>Status: Complete/matched/active</p>
+                <p>Status: active</p>
                 <p>Main Skill: Ruby on Rails</p>
-                <p>Experience Level: Expert/Intermediate/Junior</p>
-                <p>Employer: {job.employer.username}</p>
-                {/* <p>Other Skills Needed:</p> */}
-                
+                {/* <p>Experience Level: Expert/Intermediate/Junior</p> */}
+                <p>Employer: {job.employer.username}</p>                
                 <p>Job Description: {job.job_description}</p>
                 <p>Number of applicants: {job.number_of_applicants}</p>
-                {/* <ul className="otherSkills">
-                    <li>JavaScript</li>
-                    <li>Sinatra</li>
-                    <li>React JS</li>
-                </ul> */}
-                <Link to={`/applicants/${job.id}`} className="viewApplicantsButton">View Applications</Link>
+                <Link to={`/applicants/${job.id}`} id="viewApplicantsButton">View Applications</Link>
                 </section>
     </div>
     </>

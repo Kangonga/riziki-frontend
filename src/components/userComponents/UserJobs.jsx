@@ -5,11 +5,13 @@ import UserNavBar from './UserNavBar'
  export default function UserJobs() {
   const {user} = useContext(UserContext)
   const [matchedJobs, setMatchedJobs] = useState([])
-  
+  const [jobsarr,setjobsarr] = useState([])
+
   useEffect(() => {
     fetch("http://localhost:3000/matched_jobs")
     .then(response => response.json())
-    .then(data=>setMatchedJobs(data.filter(job=>job.jobseeker_id == user?.id)))
+    .then(data=>setMatchedJobs(data => {
+            setMatchedJobs(data?.filter(job=>job.jobseeker_id == user?.id))}))
     // .then(data => {
     //       setMatchedJobs(data.filter(job=>job.jobseeker_id == user?.id).filter((job,pos)=>{
     //         return data.indexOf(job)==pos
@@ -21,7 +23,7 @@ import UserNavBar from './UserNavBar'
   return (
     <div className='userlist'>
        <UserNavBar/>
-                       
+                 {console.log(jobsarr)}      
         <section id='cardContainer' >
            {
             matchedJobs?.map((matchedJob, index) => {

@@ -23,9 +23,6 @@ export default function Jobs() {
     )
   }, [])
 
-  function handleClick() {
-  }
-
   function handleSubmit(e) {
     e.preventDefault()
     fetch(`http://localhost:3000/job_applications/`, {
@@ -51,7 +48,7 @@ export default function Jobs() {
             <section   id="cardContainer">           
             {jobs?.map((job,index) => {
                 return(
-                  <JobCard job={job} key={index}  handleSubmit={handleSubmit} handleClick={handleClick}/>
+                  <JobCard job={job} key={index}  handleSubmit={handleSubmit}/>
                 )
               })}
               </section>      
@@ -60,9 +57,9 @@ export default function Jobs() {
  }
 
 
-function JobCard ({job, handleClick, handleSubmit}) {
+function JobCard ({job, handleSubmit}) {
   return(
-    <form  onSubmit={handleSubmit} className="card" id='jobsCard'>
+    <form  onSubmit={handleSubmit} className="userJobsCard">
       <input type="hidden" name='id' value={job.id} />
       <input type="hidden" name='employer_Id' value={job.employer.id} />
       
@@ -78,11 +75,11 @@ function JobCard ({job, handleClick, handleSubmit}) {
       value={`Salary: ${job.salary}`}
       />
  
-        <input
+        <textarea
       value={`Job Description: ${job.job_description}`}
        />
 
-      <button onClick={handleClick} className='button'>Apply</button>
+      <button>Apply</button>
      </form>
   )
 }

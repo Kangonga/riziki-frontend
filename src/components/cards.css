@@ -82,3 +82,33 @@
     padding: 0.5rem;
     text-align: left;
 }
+.userJobsCard {
+    background-color: white;
+    border: 2px solid darkturquoise;
+    border-radius: 10px;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.userJobsCard input,textarea {
+    width: 60%;
+    /* outline: 1px solid gray; */
+}
+.userJobsCard textarea {
+    font-family: inherit;
+    height: max-content;
+    padding: .5rem 1rem ;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border: none;
+}
+.userJobsCard button {
+    width: 7rem;
+    height: 2.2rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-size: 1rem;
+}

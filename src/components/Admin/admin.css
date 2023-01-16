@@ -92,9 +92,9 @@ body{
 }
 
 .nav-page {
-    margin-left: 6rem;
+    margin-left: 5rem;
     background-color: white;
-    min-width: 103%;
+    min-width: calc(100vw - 240px);
     grid-column: span 10 / span 10;
     height: calc(100vh - 60px);
     overflow: scroll;
@@ -383,29 +383,19 @@ table.table .avatar {
     margin-left: 30px;
 }
 
-#btn{
-    color: #fff;
-    background-color: green;
-}
 #btndelete {
     color: #fff;
     padding: 2px;
-    background-color: red;
+    background-color: crimson;
 }
 
   .deleteButton {
-      /* padding: 2px 5px;
-      border-radius: 5px;
-      background-color: crimson;
-      border: 1px dotted rgba(220, 20, 60, 0.6);
-      cursor: pointer; */
     border: none;
-        border-radius: 10px;
-        padding: 5px 10px;
-        background-color: crimson;
-        color: black;
-        cursor: pointer;
-        margin-right: 20px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: crimson;
+    color: black;
+    cursor: pointer;     
   }
 
 

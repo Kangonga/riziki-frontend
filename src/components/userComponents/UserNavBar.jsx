@@ -18,6 +18,7 @@ export default function UserNavBar(){
             </figure>
             <nav>
             {user.username&& <span>Hello {user?.username}</span>}
+            <Link to="/userprofile">My Profile</Link>
             <Link to="/jobs">Find Jobs</Link>
             <Link to="/userjobs">Applied Jobs</Link>
             <Link to="/userAppliedJobs">My Jobs</Link>

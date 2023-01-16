@@ -74,7 +74,7 @@ function UserProfileContainer({user,applied,matched}){
     
                     <div className="profileInput"> 
                         <label htmlFor="">Password:</label>
-                        <input type="password" value={user?.password} name="password"/>
+                        <input type="password" value={"********"} name="password"/>
                     </div>
                     <div className="buttonContainer">
                         <button>Edit</button> 

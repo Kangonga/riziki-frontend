@@ -48,6 +48,7 @@ function MatchedJobs({matchedJob}) {
             <p>Responsibilities: {matchedJob.job.responsibilities}</p>
             <p>Salary: {matchedJob.job.salary}</p>
             <p>Employer: {matchedJob.employer.username}</p>
+            <p>Status: Active</p>
     </div>
   )
 }

@@ -15,6 +15,7 @@ import SignUpForm from "./components/userComponents/SignUpForm";
 import Jobs from "./components/jobs";
 import Applicants from "./components/employerComponents/Applicants";
 import UserJobs from "./components/userComponents/UserJobs";
+import AppliedJobs from "./components/userComponents/AppliedJobs";
 // import {UserContext} from "./UserContext";
 // import {useContext} from "react"
 
@@ -44,8 +45,7 @@ function App() {
      <Route path="/applicants/*" element={<Applicants />} />
      <Route path="/applicants/:job_id" element={<Applicants />} />
      <Route path="/userjobs" element= {<UserJobs />} />
-
-     {/* <Route path="/list" element={<NonAdmins />} /> */}
+     <Route path="/userAppliedJobs" element={<AppliedJobs/>} />
     </Routes>
   </UserContext.Provider>
     

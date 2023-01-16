@@ -11,7 +11,9 @@ import UserNavBar from './UserNavBar'
     fetch("http://localhost:3000/matched_jobs")
     .then(response => response.json())
     .then(data => {
-          setMatchedJobs(data.filter(job=>job.jobseeker_id == user?.id))
+          setMatchedJobs(data.filter(job=>job.jobseeker_id == user?.id).filter((job,pos)=>{
+            return data.indexOf(job)==pos
+          }))
     }
     )
   }, [])
@@ -34,26 +36,7 @@ import UserNavBar from './UserNavBar'
   )
 }
 
-// function MatchedJobs({matchedJob}) {
-//   return(
-//     <div className='card job-list'>
-//       <h2>Job Title: {matchedJob.jobseeker_id}</h2>
-//         <h3>Job Category</h3>
-//             <p>Status: Complete/matched/active</p>
-//             <p>Main Skill: Ruby on Rails</p>
-//             <p>Experience Level: Expert/Intermediate/Junior</p>
-//             <p>Name of contractor: name/none</p>
-//             <p>Other Skills Needed:</p>
-//             <ul className="otherSkills">
-//                 <li>JavaScript</li>
-//                 <li>Sinatra</li>
-//                 <li>React JS</li>
-//             </ul>
-//             <p>Job Description</p>
-//             <p>Rating:</p>
-//     </div>
-//   )
-// }
+
 
 function MatchedJobs({matchedJob}) {
   return(

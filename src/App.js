@@ -6,6 +6,7 @@ import EmployerProfile from "./components/employerComponents/EmployerProfile";
 import EmployerJobs from "./components//employerComponents/EmployerJobs";
 import Cards from "./components/Cards";
 import './employers.css'
+import './cards.css'
 import UserList from "./components/employerComponents/UserList";
 import { useContext, useState } from "react";
 import { createContext } from "react";

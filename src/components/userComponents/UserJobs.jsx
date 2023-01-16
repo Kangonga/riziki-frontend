@@ -5,7 +5,6 @@ import UserNavBar from './UserNavBar'
  export default function UserJobs() {
   const {user} = useContext(UserContext)
   const [matchedJobs, setMatchedJobs] = useState([])
-  const [jobs, setJobs] = useState([])
   
   useEffect(() => {
     fetch("http://localhost:3000/matched_jobs")
@@ -41,16 +40,14 @@ import UserNavBar from './UserNavBar'
 
 function MatchedJobs({matchedJob}) {
   return(
-    <div className='card '>
-      <h2>Job Title: {matchedJob.job.job_title}</h2>
-        <h3>Company name: {matchedJob.job.company_name}</h3>
-            <p>Status: Complete/matched/active</p>
-            <p>Job Description: {matchedJob.job.job_description}</p>
-            {/* <p>Responsibilities: {matchedJob.job.responsibilities}</p> */}
-            <p>Salary: {matchedJob.job.salary}</p>
-            <p>Employer: {matchedJob.employer.username}</p>
-            <p>Status: Active</p>
-    </div>
+            <div className='userJobsCard'>
+                  <h2>Job Title: {matchedJob.job.job_title}</h2>
+                  <h3>Category: {matchedJob.job.category}</h3>
+                  <textarea value={`Job Description: ${matchedJob.job.job_description}`}/>
+                  <input value={`Salary: ${matchedJob.job.salary}`}/>
+                  <input value={`Employer: ${matchedJob.employer.username}`}/>
+                  <input value="Status: Active"/>
+            </div>
   )
 }
 //export default UserJobs

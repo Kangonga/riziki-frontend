@@ -1,18 +1,35 @@
-import './Profile.css'
-import React, { useState} from 'react'
-import {Link, Navigate, useNavigate} from "react-router-dom"
+import React, {useState, useContext} from "react";
+import { Link,useNavigate } from "react-router-dom";
+import '../userComponents/Login.css';
+import { Navigate } from "react-router-dom";
+import { UserContext } from "../../App";
 
 
-function SignUpForm() {
+export default function AdminLogin () {
+
+  const {user} = useContext(UserContext)
+    return (
+        <>
+        {user?.username?<Navigate to={"/admin"} />:null}
+        <LoginForm />
+        {/* <Test /> */}
+
+         </>
+      )
+
+}
+
+
+function LoginForm() {
   const navigate = useNavigate();
+  const {user,setUser} = useContext(UserContext)
+
+  const [errors,setErrors] = useState()
   const [loginData,setLoginData] = useState({
-    username:"",
+    name:"",
     password:"",
-    email:"",
-    role:"",
-    company_name:"none",
-    admin_id:1
   })
+
   function handleChange(e){
     setLoginData({
       ...loginData,
@@ -24,61 +41,47 @@ function SignUpForm() {
   function handleSubmit(e){
     e.preventDefault()
 
-    fetch("http://127.0.0.1:3000/signup", {
+    fetch("http://127.0.0.1:3000/login", {
       method: "POST",
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify(loginData)
     })
     .then(resp=>{
       if(resp.ok){
-        setLoginData({
-          username:"",
-          password:"",
-          email:"",
-          role:"",
-          company_name:"none",
-          admin_id:1
-        })
-        return navigate("/login")
+        setErrors(false)
+        // console.log(resp.json())
+        return resp.json()
       }
       else {
-        console.log("errors")
+        setErrors(true)
+        setUser({})
+        console.log(resp.json())
       }
     })
     .then(data=>{
-      // setUser(data)
+      setUser(data)
+      return navigate("/admin")
       // console.log(user)
     }
-    );
-    
+      )
   }
 
   return(
+   
     <div className="loginContainer">
       <div className="log-form-container">
-          <h2>Sign Up</h2>
+          <h2>Login</h2>
 
       <form className="login-form" onSubmit={handleSubmit}>
 
       <label htmlFor="username">username</label>
         <input
         id="username"
-        name="username" 
+        name="name" 
         type= "text" 
         value={loginData.username}
         onChange={handleChange}
         placeholder="your username"
-        required = 'required'
-        />
-
-        <label htmlFor="email">email</label>
-        <input
-        id="email"
-        name="email" 
-        type= "email" 
-        value={loginData.email}
-        onChange={handleChange}
-        placeholder="your email"
         required = 'required'
         />
 
@@ -93,7 +96,7 @@ function SignUpForm() {
         required = 'required'
         />
 
-        <label htmlFor="email">role</label>
+        {/* <label htmlFor="email">role</label>
         <select
         id="userRole"
         name="role" 
@@ -102,17 +105,26 @@ function SignUpForm() {
         onChange={handleChange}
         >
           <option value="user">Freelancer</option>
-          {/* <option value="employer">Client</option> */}
-        </select>
+          <option value="employer">Client</option>
+        </select> */}
 
-      {/* {errors&& <ErrorDiv />} */}
+      {errors&& <ErrorDiv />}
 
-      <button type="submit">Sign Up</button>
+      <button type="submit">Log In</button>
 
+  
       </form>
-      <Link to="/login" className="link-btn" >Already have an account? Sign In</Link>
+      <Link to="/signup" className="link-btn" >Don't have an account? Sign Up</Link>
   </div>
     </div>
+    
+    )
+}
+
+function ErrorDiv(){
+  return(
+    <div id="errorDiv">
+      Incorrect username or password
+    </div>
   )
-  }
-export default SignUpForm
+}

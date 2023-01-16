@@ -4,7 +4,7 @@ import { useParams,Link } from "react-router-dom";
 import { UserContext } from "../../App";
 import EmployerNavBar from "./EmployerNavBar";
 import logo from "../../assets/sitelogo.jpg"
-
+import "../../cards.css"
 
 export default function Applicants(){
     const {job_id}= useParams()
@@ -43,12 +43,11 @@ export default function Applicants(){
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(params)
         })
-        // .then(resp=>console.log(resp.json()))
     }
     
     return(
         <>
-            <div id="userlist applicants">
+            <div>
             <EmployerNavBar />
             <section id="cardContainer">
                 {jobseekers?.filter(user=>(Array.from(applications.map(app=>app.jobseeker_id)).includes(user.id))).length>0?
@@ -94,18 +93,18 @@ function UserCard({user,handleSubmit,matched}){
   
     return(
         <>
-         <form className="card applicantCard" onSubmit={handleSubmit}>
+         <form className="applicantcard" onSubmit={handleSubmit}>
                     <figure id="applicantFigure">
                         <img src={logo} alt="personIcon" />
                     </figure>
-                    <section className="personalDetails">
+                    {/* <section> */}
                     <input type="hidden" name="id"value={`${user.id}`}/>
                         <input value={`username: ${user.username}`}/>
                         <input value={`skills: ${user.skills}`}/>
                         <input value={`job rating: ${user.rating}/5`}/>
                         <input value={`Jobs done: ${user.employers.length}`}/>
-                        <button>{Math.max(...Array.from(matched?.map(job=>job.jobseeker_id)))>0?"Hired":"Hire"}</button>
-                    </section>
+                        <button id="applicantButton">{Math.max(...Array.from(matched?.map(job=>job.jobseeker_id)))>0?"Hired":"Hire"}</button>
+                    {/* </section> */}
             </form>
         </>
     )

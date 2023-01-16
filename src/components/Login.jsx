@@ -111,7 +111,9 @@ function LoginForm() {
 
   
       </form>
-      <Link to="/signup" className="link-btn" >Don't have an account? Sign Up</Link>
+      <Link to="/signup" className="link-btn" >Clients: Don't have an account? Sign Up</Link>
+      <Link to="/employersignup" className="link-btn" > Freelancers: Don't have an account? Sign Up</Link>
+
   </div>
     </div>
     

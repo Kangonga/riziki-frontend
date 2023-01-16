@@ -7,22 +7,19 @@ import { useState } from "react";
 const columns = [
   { field: 'id', headerName: 'User ID', width: 150 },
   { field: 'username', headerName: 'UserName', width: 300 },
-  { field: 'company_name', headerName: 'CompanyName', width: 200 },
-  { field: 'email', headerName: 'Email', width: 300, 
-  valueGetter:(users)=> users.row.email},
+  { field: 'company_name', headerName: 'CompanyName', width: 250 },
+  { field: 'email', headerName: 'Email', width: 320, 
+  valueGetter:(employers)=> employers.row.email},
   
 ];
 
 
-
-
-
 const Employers = () => {
-  const [users,setUsers]= useState([]);
+  const [employers,setEmployers]= useState([]);
   const [pageSize, setPageSize] = useState(10)
 
 const handleDelete = (id) => {
-    setUsers(users.filter((user) => user.id !== id))
+    setEmployers(employers.filter((employer) => employer.id !== id))
 fetch("https://riziki.onrender.com/employers/" + id , {
       method: "DELETE"
     })
@@ -33,20 +30,20 @@ fetch("https://riziki.onrender.com/employers/" + id , {
    useEffect(()=>{
     fetch('https://riziki.onrender.com/employers')
       .then(response => response.json())
-      .then((json)=> setUsers(json))
+      .then((json)=> setEmployers(json))
      
   }, [])
   const actionColumn = [
     {
       field: "action",
       headerName: "Action",
-      width: 200,
-      renderCell: (user) => {
+      width: 150,
+      renderCell: (employer) => {
         return (
            <div>
             
               <button className="deleteButton"
-              onClick={() => handleDelete(user.id)}> Delete</button>
+              onClick={() => handleDelete(employer.id)}> Delete</button>
             </div>
         );
       },
@@ -67,7 +64,7 @@ fetch("https://riziki.onrender.com/employers/" + id , {
   
    
     <DataGrid
-    rows={users}
+    rows={employers}
     pageSize={pageSize}
     rowsPerPageOptions={[8,5,10]}
     onPageSizeChange = {(newPageSize) => setPageSize(newPageSize)}

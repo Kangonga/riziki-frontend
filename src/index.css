@@ -50,7 +50,7 @@ nav{
 #login {
   background-color: rebeccapurple;
   color: white;
-  height: 2rem;
+  height: max-content;
   line-height: 2rem;
   padding: 0 .5rem;
   /* text-align: center; */

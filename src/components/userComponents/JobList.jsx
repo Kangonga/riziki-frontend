@@ -67,7 +67,7 @@ export default function JobList() {
 
 function JobCard ({job, handleClick, handleSubmit}) {
   return(
-    <form  onSubmit={handleSubmit} className="card job-list">
+    <form onSubmit={handleSubmit} className="card">
       <input type="hidden" name='id' value={job.id} />
       <input type="hidden" name='employer_Id' value={job.employer.id} />
       <label htmlFor="job_title">Job Title:</label>   

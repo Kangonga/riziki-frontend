@@ -8,20 +8,22 @@ import UserNavBar from './UserNavBar'
   const [jobs, setJobs] = useState([])
   
   useEffect(() => {
-    fetch("http://localhost:3000/job_applications")
+    fetch("http://127.0.0.1:3000/job_applications")
     .then(response => response.json())
-    .then(data => {
-          setappliedJobs(data.filter(job=>job.jobseeker_id == user?.id).filter((job,pos)=>{
-            return data.indexOf(job)==pos
-          }))
-    }
-    )
+    .then(data=>setappliedJobs(data.filter(
+      job=>job.jobseeker_id==user?.id)))
+    // .then(data => {
+    //       setappliedJobs(data.filter(job=>job.jobseeker_id == user?.id).filter((job,pos)=>{
+    //         return data.indexOf(job)==pos
+    //       }))
+    // }
+    // )
   }, [])
 
   return (
     <div className='userlist'>
        <UserNavBar/>
-                       
+        {console.log(jobs)} 
         <section id='cardContainer' >
            {
             appliedJobs?.map((appliedJob, index) => {
@@ -40,14 +42,14 @@ import UserNavBar from './UserNavBar'
 
 function UserAppliedJobs({appliedJob}) {
   return(
-    <div className='card job-list'>
+    <div className='userJobsCard'>
       <h2>Job Title: {appliedJob.job.job_title}</h2>
-        <h3>Company name: {appliedJob.job.company_name}</h3>
-            <p>Status: Complete/applied/active</p>
-            <p>Job Description: {appliedJob.job.job_description}</p>
-            <p>Responsibilities: {appliedJob.job.responsibilities}</p>
-            <p>Salary: {appliedJob.job.salary}</p>
-            <p>Employer: {appliedJob.employer.username}</p>
+      <h3>Category: {appliedJob.job.category}</h3>
+            {/* <input>Status: Complete/applied/active</p> */}
+            <textarea value={`Job Description: ${appliedJob.job.job_description}`}/>
+            {/* <input value={`Responsibilities: ${appliedJob.job.responsibilities}`}/> */}
+            <input value={`Salary: ${appliedJob.job.salary}`}/>
+            <input value={`Employer: ${appliedJob.employer.username}`}/>
     </div>
   )
 }

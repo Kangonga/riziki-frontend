@@ -10,12 +10,13 @@ import UserNavBar from './UserNavBar'
   useEffect(() => {
     fetch("http://localhost:3000/matched_jobs")
     .then(response => response.json())
-    .then(data => {
-          setMatchedJobs(data.filter(job=>job.jobseeker_id == user?.id).filter((job,pos)=>{
-            return data.indexOf(job)==pos
-          }))
-    }
-    )
+    .then(data=>setMatchedJobs(data.filter(job=>job.jobseeker_id == user?.id)))
+    // .then(data => {
+    //       setMatchedJobs(data.filter(job=>job.jobseeker_id == user?.id).filter((job,pos)=>{
+    //         return data.indexOf(job)==pos
+    //       }))
+    // }
+    // )
   }, [])
 
   return (
@@ -40,12 +41,12 @@ import UserNavBar from './UserNavBar'
 
 function MatchedJobs({matchedJob}) {
   return(
-    <div className='card job-list'>
+    <div className='card '>
       <h2>Job Title: {matchedJob.job.job_title}</h2>
         <h3>Company name: {matchedJob.job.company_name}</h3>
             <p>Status: Complete/matched/active</p>
             <p>Job Description: {matchedJob.job.job_description}</p>
-            <p>Responsibilities: {matchedJob.job.responsibilities}</p>
+            {/* <p>Responsibilities: {matchedJob.job.responsibilities}</p> */}
             <p>Salary: {matchedJob.job.salary}</p>
             <p>Employer: {matchedJob.employer.username}</p>
             <p>Status: Active</p>

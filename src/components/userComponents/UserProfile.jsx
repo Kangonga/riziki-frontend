@@ -8,21 +8,17 @@ export default function UserProfile(){
     const {user,setUser} = useContext(UserContext)
     const [applied,setApplied] = useState([])
     const [matched,setMatched] = useState([])
-
+    const [status,setStatus] = useState(true)
     useEffect(()=>{
         const fetchData  = async()=>{
 
             await  fetch("http://127.0.0.1:3000/job_applications")
             .then(resp=>resp.json())
-            .then(data=>setApplied(data.filter(job=>job.jobseeker_id==user?.id).filter((job,pos)=>{
-                return data.indexOf(job)==pos
-              })))
+            .then(data=>setApplied(data.filter(job=>job.jobseeker_id==user?.id)))
 
             await fetch("http://127.0.0.1:3000/matched_jobs")
             .then(resp=>resp.json())
-            .then(data=>setMatched(data.filter(job=>job.jobseeker_id==user?.id).filter((job,pos)=>{
-                return data.indexOf(job)==pos
-              })))
+            .then(data=>setMatched(data.filter(job=>job.jobseeker_id==user?.id)))
         }
         fetchData()
        
@@ -30,8 +26,9 @@ export default function UserProfile(){
     return(
         <>
         <UserNavBar />
+        {console.log("applied",applied)}
+        {console.log("matched",matched)}
         {user.id&& <UserProfileContainer user={user} applied={applied} matched={matched}/>}
- 
         </>
         
     )

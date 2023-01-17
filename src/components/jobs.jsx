@@ -1,26 +1,35 @@
 import React, {useState, useEffect, useContext} from 'react'
 import UserNavBar from './userComponents/UserNavBar'
 import { UserContext } from '../App'
-
+import cta from "../assets/cta.jpg"
+import Logo from "../assets/sitelogo.jpg"
 
 export default function Jobs() {
+  const [status, setStatus] = useState(true)
   const {user} = useContext(UserContext)
   const [jobs, setJobs] = useState([])
+  const [applied,setApplied] = useState([])
   const [job, setJob] = useState({
     jobseeker_id: "",
     job_id: "",
     employer_id: ""
 
   })
-  const [status, setStatus] = useState("not applied")
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/jobs")
-    .then(response => response.json())
-    .then(data => {
-          setJobs(data)
+    const fetchdata = async () => {
+
+      await fetch("http://127.0.0.1:3000/job_applications")
+      .then(response => response.json())
+      .then(data => setApplied(data.filter(job=>job?.jobseeker_id==user?.id).map(job=>job.job_id)))
+
+      await fetch("http://127.0.0.1:3000/jobs")
+        .then(response => response.json())
+        .then(data => setJobs(data))
+
     }
-    )
-  }, [])
+    fetchdata()
+    
+  }, [status])
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -37,15 +46,17 @@ export default function Jobs() {
               })
           })
           .then(response => response.json())
-          .then(() => {setStatus("applied")})   
+          .then(() => {setStatus(!status)})   
   }
   
 
   return (
         <div className='userlist'>   
-          <UserNavBar />              
+          <UserNavBar />  
+          {console.log("applied",applied)}            
             <section   id="cardContainer">           
-            {jobs?.map((job,index) => {
+            {jobs?.filter(job=>!applied.includes(job.id)).length<1?<NoJobs user={user} applied={applied}/>:
+            jobs?.filter(job=>!applied.includes(job.id)).map((job,index) => {
                 return(
                   <JobCard job={job} key={index}  handleSubmit={handleSubmit}/>
                 )
@@ -55,6 +66,30 @@ export default function Jobs() {
   )
  }
 
+function NoJobs ({user,applied}){
+  return (
+    <>
+    <main id='noJobsContainer'>
+      <UserCard user={user} applied={applied}/>
+      <section id='noJobsHero'>There are currently no jobs available. Please check back later!</section>
+    </main>
+    </>
+  )
+}
+function UserCard({user,applied}){
+  return(
+      <div id="noJobsCard">
+          <h1>My Profile</h1>
+          <figure >
+              <img src={Logo}alt="Profile icon" />
+          </figure>
+          <input type="text" value={user?.username}/>
+          <input type="text" value="Individual" name="company"/>
+          <input type="text" value="Nairobi, Kenya" name="location"/>
+          <input type="text" value={`Applied Jobs: ${applied?.length}`} name="postedJobs"/>
+      </div>
+  )
+}
 
 function JobCard ({job, handleSubmit}) {
   return(

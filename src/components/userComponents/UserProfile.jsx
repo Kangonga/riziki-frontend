@@ -26,7 +26,7 @@ export default function UserProfile(){
         }
         fetchData()
        
-    })
+    },[])
     return(
         <>
         <UserNavBar />

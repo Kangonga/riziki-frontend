@@ -110,3 +110,43 @@
     margin-top: 1rem;
     font-size: 1rem;
 }
+
+#noJobsContainer {
+    display: flex;
+    flex-direction: row;
+    height: 70vh;
+    width: 80vw;
+    gap: 5rem;
+    justify-content: space-between;
+}
+#noJobsContainer figure {
+    height: 35%;
+    width: 50%;
+    text-align: center;
+    margin: 0;
+}
+#noJobsContainer figure img {
+    height: 100%;
+}
+#noJobsHero {
+    font-size: 3rem;
+    text-align: center;
+    width: 60%;
+    padding: 1rem;
+    /* outline: 5px solid royalblue; */
+}
+#noJobsCard {
+    /* width: 50%; */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    outline: 5px solid darkturquoise;
+    text-align: center;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 0;
+    height: 90%;
+}
+#noJobsCard input {
+    margin: 0;
+}

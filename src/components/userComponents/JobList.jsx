@@ -7,6 +7,7 @@ import { UserContext } from '../../App'
 export default function JobList() {
   const {user} = useContext(UserContext)
   const [jobs, setJobs] = useState([])
+  const [applied,setApplied] = useState([])
   const [job, setJob] = useState({
     jobseeker_id: "",
     job_id: "",
@@ -89,7 +90,7 @@ function JobCard ({job, handleClick, handleSubmit}) {
       value={job.job_description}
        />
 
-      <button onClick={handleClick} className='button'>Apply</button>
+      <button onClick={handleClick} className='button'>{}</button>
      </form>
   )
 }

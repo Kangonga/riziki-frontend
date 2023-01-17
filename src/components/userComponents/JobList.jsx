@@ -25,17 +25,7 @@ export default function JobList() {
   }, [])
 
   function handleClick() {
-    fetch(`http://localhost:3000/job_applications/`, {
-      method: "POST",
-      headers:{
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-        body: JSON.stringify(job)
-    })
-    .then(response => console.log(response.json()))
-    .then((status) => {setStatus("applied")})
-    console.log("applied");
+    
 
 
   }
@@ -48,6 +38,17 @@ export default function JobList() {
     employer_id: e.target.employer_Id.value
     })
     console.log(job)
+    fetch(`http://localhost:3000/job_applications/`, {
+      method: "POST",
+      headers:{
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+        body: JSON.stringify(job)
+    })
+    .then(response => console.log(response.json()))
+    .then((status) => {setStatus("applied")})
+    console.log("applied");
   }
   
 

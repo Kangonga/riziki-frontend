@@ -20,7 +20,7 @@ const Applications = () => {
   const [pageSize, setPageSize] = useState(10)
 
   useEffect(()=>{
-    fetch('https://riziki.onrender.com/job_applications')
+    fetch('http://127.0.0.1:3000/job_applications')
       .then(response => response.json())
       .then((applications)=> setApplications(applications))
      

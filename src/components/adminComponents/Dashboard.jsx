@@ -11,7 +11,7 @@ function Dashboard () {
 
 
     useEffect(()=>{
-        fetch("https://riziki.onrender.com/employers")
+        fetch("http://127.0.0.1:3000/employers")
         .then(resp => resp.json())
         .then((data) => {
             setEmployers(data)
@@ -19,7 +19,7 @@ function Dashboard () {
     }, [])
 
      useEffect(()=>{
-        fetch("https://riziki.onrender.com/jobseekers")
+        fetch("http://127.0.0.1:3000/jobseekers")
         .then(resp => resp.json())
         .then((data) => {
             setJobseekers(data)
@@ -27,7 +27,7 @@ function Dashboard () {
     },[])
 
     useEffect(()=>{
-        fetch("https://riziki.onrender.com/job_applications")
+        fetch("http://127.0.0.1:3000/job_applications")
         .then(resp => resp.json())
         .then((data) => {
             setApllications(data)
@@ -35,7 +35,7 @@ function Dashboard () {
     },[])
 
      useEffect(()=>{
-        fetch("https://riziki.onrender.com/jobs")
+        fetch("http://127.0.0.1:3000/jobs")
         .then(resp => resp.json())
         .then((jobs) => {
             setJobs(jobs)

@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import UserNavBar from './userComponents/UserNavBar'
 import { UserContext } from '../App'
-import cta from "../assets/cta.jpg"
 import Logo from "../assets/sitelogo.jpg"
 
 export default function Jobs() {

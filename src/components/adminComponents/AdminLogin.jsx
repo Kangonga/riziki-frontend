@@ -41,7 +41,7 @@ function LoginForm() {
   function handleSubmit(e){
     e.preventDefault()
 
-    fetch("http://127.0.0.1:3000/login", {
+    fetch("http://127.0.0.1:3000/adminLogin", {
       method: "POST",
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify(loginData)

@@ -18,7 +18,7 @@ export default function UserList(){
             .then(data=>setUserJobs(data))
         }
         fetchdata()
-    })
+    },[])
     return (
         <div id="userlist">
             <EmployerNavBar />

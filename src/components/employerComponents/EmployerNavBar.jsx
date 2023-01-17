@@ -18,8 +18,9 @@ export default function EmployerNavBar(){
             <nav>
             <Link to="/userlist">Find Talent</Link>
             <Link to="/jobform">Post a Job</Link>
-            <Link to="/employerJobs">My Jobs</Link>
+            <Link to="/employerJobs">Posted Jobs</Link>
             <Link to="/profile">My Profile</Link>
+            <Link to="/matchedjobs">My jobs</Link>
             <Link to="/login" onClick={logOut} id="login">{user.id?"Log Out":"Log In"}</Link>
             </nav>
             </header>

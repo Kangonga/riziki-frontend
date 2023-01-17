@@ -3,12 +3,13 @@ import EmployerNavBar from "./EmployerNavBar"
 import cta from "../../assets/cta.jpg"
 import { Link, Navigate } from "react-router-dom"
 import { UserContext } from "../../App"
+import { PersonPin } from "@material-ui/icons"
 
-export default function EmployerJobs(){
+export default function EmployerMatchedJobs(){
     const [jobs,setJobs] = useState([])
     const {user} = useContext(UserContext)
     useEffect(()=>{
-        fetch(`http://127.0.0.1:3000/jobs`)
+        fetch(`http://127.0.0.1:3000/matched_jobs`)
         .then(resp=>resp.json())
         .then(data=>setJobs(data.filter(job=>job.employer.id==user.id)));
     },[])
@@ -40,6 +41,12 @@ function JobList({jobs}){
 
 function JobCard({job}){
     const {user} = useContext(UserContext)
+    const [jobseeker,setjobseeker] = useState([])
+    useEffect(()=>{
+        fetch("http://127.0.0.1:3000/jobseekers")
+        .then(response => response.json())
+        .then(data=>setjobseeker(data))
+    },[])
     return(
     <>
     <div className="card"id="employerJobs">
@@ -49,10 +56,12 @@ function JobCard({job}){
                 <p>Status: active</p>
                 <p>Main Skill: Ruby on Rails</p>
                 {/* <p>Experience Level: Expert/Intermediate/Junior</p> */}
-                <p>Employer: {job.employer.username}</p>                
-                <p>Job Description: {job.job_description}</p>
+                <p>Employer: {job.employer.username}</p>  
+                <p>Employee: {(jobseeker.filter(person=>person.id==job.jobseeker_id)[0]?.username)}</p>                
+              
+                <p>Job Title: {job.job.job_title}</p>
                 {/* <p>Number of applicants: {job.number_of_applicants}</p> */}
-                <Link to={`/applicants/${job.id}`} id="viewApplicantsButton">View Applications</Link>
+                {/* <Link to={`/applicants/${job.id}`} id="viewApplicantsButton">View Applications</Link> */}
                 </section>
     </div>
     </>

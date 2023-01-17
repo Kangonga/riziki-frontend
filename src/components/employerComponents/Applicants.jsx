@@ -5,15 +5,17 @@ import { UserContext } from "../../App";
 import EmployerNavBar from "./EmployerNavBar";
 import logo from "../../assets/sitelogo.jpg"
 import "../../cards.css"
+import { useNavigate } from "react-router-dom";
 
 export default function Applicants(){
+    const navigate = useNavigate()
     const {job_id}= useParams()
     const [jobseekers,setJobSeekers] = useState([])
     const [applicants,setJobApplicants] = useState([])
     const [applications,setJobApplications] = useState([])
     const [matchedJobs,setMatchedJobs] = useState([])
     const {user} = useContext(UserContext)
-
+    const [status,setStatus] = useState([])
     useEffect(()=> {
         const fetchdata = async()=>{
             await fetch("http://127.0.0.1:3000/job_applications")
@@ -29,7 +31,7 @@ export default function Applicants(){
                 .then(data=>setMatchedJobs(data.filter(app=>app.employer_id==user.id)))
         }
         fetchdata()
-    },[])
+    },[status])
     
     function handleSubmit(e){
         e.preventDefault();
@@ -43,6 +45,8 @@ export default function Applicants(){
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(params)
         })
+        setStatus(!status)
+        navigate("/matchedjobs")
     }
     
     return(
@@ -103,7 +107,8 @@ function UserCard({user,handleSubmit,matched}){
                         <input value={`skills: ${user.skills}`}/>
                         <input value={`job rating: ${user.rating}/5`}/>
                         <input value={`Jobs done: ${user.employers.length}`}/>
-                        <button id="applicantButton">{Math.max(...Array.from(matched?.map(job=>job.jobseeker_id)))>0?"Hired":"Hire"}</button>
+                        {console.log(matched)}
+                        <button id="applicantButton">{"Hire"}</button>
                     {/* </section> */}
             </form>
         </>

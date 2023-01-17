@@ -21,6 +21,7 @@ import MainPage from "./components/adminComponents/MainPage";
 import AdminLogin from "./components/adminComponents/AdminLogin";
 import AdminSignUpForm from "./components/adminComponents/AdminSignUp";
 import EmployerSignUpForm from "./components/employerComponents/EmployerSignUp";
+import EmployerMatchedJobs from "./components/employerComponents/EmployerMatched";
 
 export const UserContext = createContext()
 
@@ -53,6 +54,7 @@ function App() {
      <Route path="/userAppliedJobs" element={<AppliedJobs/>} />
      <Route path="/adminLogin" element={<AdminLogin/>} />
      <Route path="/adminSignUp" element={<AdminSignUpForm/>} />
+     <Route path="/matchedjobs" element={<EmployerMatchedJobs />} />
     </Routes>
   </UserContext.Provider>
     

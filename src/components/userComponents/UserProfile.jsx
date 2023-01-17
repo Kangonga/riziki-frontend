@@ -74,8 +74,8 @@ function UserProfileContainer({user,applied,matched}){
                         <input type="password" value={"********"} name="password"/>
                     </div>
                     <div className="buttonContainer">
-                        <button>Edit</button> 
-                        <button>Save</button> 
+                        {/* <button>Edit</button> 
+                        <button>Save</button>  */}
                     </div>
                                
                 </form>

@@ -42,8 +42,8 @@ export default function EmployerProfile(){
                         <input type="text" value={"**********"}name="password"/>
                     </div>
                     <div className="buttonContainer">
-                        <button>Edit</button> 
-                        <button>Save</button> 
+                        {/* <button>Edit</button> 
+                        <button>Save</button>  */}
                     </div>
                                
                 </form>

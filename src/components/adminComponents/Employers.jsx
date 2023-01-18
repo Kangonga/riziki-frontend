@@ -20,7 +20,7 @@ const Employers = () => {
 
 const handleDelete = (id) => {
     setEmployers(employers.filter((employer) => employer.id !== id))
-fetch("https://riziki.onrender.com/employers/" + id , {
+fetch("http://127.0.0.1:3000/employers/" + id , {
       method: "DELETE"
     })
       .then((res) => res.json())
@@ -28,7 +28,7 @@ fetch("https://riziki.onrender.com/employers/" + id , {
   }
   
    useEffect(()=>{
-    fetch('https://riziki.onrender.com/employers')
+    fetch('http://127.0.0.1:3000/employers')
       .then(response => response.json())
       .then((json)=> setEmployers(json))
      

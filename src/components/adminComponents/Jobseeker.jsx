@@ -16,7 +16,7 @@ const Jobseeker = () => {
 
   const handleDelete = (id) => {
     setJobseekers(jobseekers.filter((jobseeker) => jobseeker.id !== id));
-    fetch("https://riziki.onrender.com/jobseekers/" + id, {
+    fetch("http://127.0.0.1:3000/jobseekers/" + id, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -24,7 +24,7 @@ const Jobseeker = () => {
   };
 
   useEffect(() => {
-    fetch("https://riziki.onrender.com/jobseekers")
+    fetch("http://127.0.0.1:3000/jobseekers")
       .then((response) => response.json())
       .then((json) => setJobseekers(json));
   }, []);

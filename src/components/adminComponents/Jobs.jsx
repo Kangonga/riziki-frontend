@@ -4,7 +4,7 @@ function Jobs() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch("https://riziki.onrender.com/jobs")
+    fetch("http://127.0.0.1:3000/jobs")
       .then((resp) => resp.json())
       .then((jobs) => {
         setJobs(jobs);

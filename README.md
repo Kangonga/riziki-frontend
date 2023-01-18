@@ -74,6 +74,7 @@ The page will reload when you make changes.\
 
 # Back end repo repo
 
-[Project Backend repo](git@github.com:anwar730/rz-backend.git)
+[Project Backend repo](https://github.com/anwar730/rz-backend)
+
 # License
 MIT License

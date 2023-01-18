@@ -60,7 +60,7 @@ function Dashboard () {
                                </span>
                             </div>
                             <div className="card-body">
-                                <h5 className="card-title">0</h5>
+                                <h5 className="card-title">{employers?.length + jobseekers?.length}</h5>
                                 <p className="card-text">Total Users</p>
                             </div>
                             <a href="/admin" className="small-box-footer" style={{textDecoration: 'none', color:'white'}}>More info <i className="bi bi-arrow-right-circle-fill" /></a>

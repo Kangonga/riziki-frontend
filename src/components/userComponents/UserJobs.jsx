@@ -13,21 +13,15 @@ import Logo from "../../assets/sitelogo.jpg"
     fetch("http://localhost:3000/matched_jobs")
     .then(response => response.json())
     .then(data=>setMatchedJobs(data?.filter(job=>job.jobseeker_id == user?.id)))
-    // .then(data => {
-    //       setMatchedJobs(data.filter(job=>job.jobseeker_id == user?.id).filter((job,pos)=>{
-    //         return data.indexOf(job)==pos
-    //       }))
-    // }
-    // )
   }, [])
 
   return (
     <div className='userlist'>
        <UserNavBar/>
-                 {console.log(jobsarr)}      
+                 {console.log(matchedJobs)}      
         <section id='cardContainer' >
            {
-            matchedJobs? <NoJobs/>:matchedJobs.map((matchedJob, index) => {
+            !matchedJobs? <NoJobs/>:matchedJobs.map((matchedJob, index) => {
               return(
                 <MatchedJobs matchedJob={matchedJob} key={index}/>
               )

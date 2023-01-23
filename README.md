@@ -1,4 +1,4 @@
-#Table Of Contents
+# Table Of Contents
 - [Riziki Job Application Portal](#riziki-job-application-portal)
 - [Contributors](#contributors)
 - [Features](#features)
@@ -70,7 +70,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 
 # Live Link
-  [Live link to view the project](https://lambent-queijadas-86e7b0.netlify.app/)
   [Live link to view the project](https://lambent-queijadas-86e7b0.netlify.app/)
 
 # Back end repo 

@@ -70,7 +70,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 
 # Live Link
-  [Live link to view the project](https://lambent-queijadas-86e7b0.netlify.app/)
+  [Live link to view the project](https://imaginative-beignet-60f579.netlify.app/)
 
 # Back end repo 
 
